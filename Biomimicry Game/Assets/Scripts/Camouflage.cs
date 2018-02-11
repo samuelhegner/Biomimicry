@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Camouflage: MonoBehaviour
 {
     Color color;
     public KeyCode change;
-    public double abilitypower;
+    public int abilitypower;
     public bool isInvisible;
     public bool inProgress;
+
+    public Text abilityScore;
 
     private void Start()
     {
@@ -16,6 +19,7 @@ public class Camouflage: MonoBehaviour
     }
     private void Update()
     {
+        abilityScore.text = "Stealth Left: " + abilitypower;
         if (Input.GetKey(change))
         {
             if (isInvisible == true && inProgress == false)
@@ -32,7 +36,7 @@ public class Camouflage: MonoBehaviour
         if (isInvisible == true)
         {
             GetComponent<Renderer>().material.SetColor("_Color", color);
-            abilitypower -= 0.1;
+            abilitypower -= 1;
             if (color.a >= 0)
             {
                 color.a -= 0.03f;
