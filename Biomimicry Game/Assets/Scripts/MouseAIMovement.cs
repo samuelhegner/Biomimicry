@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MouseAIMovement : MonoBehaviour {
 
+    private bool moving;
     private bool idle;
     public GameObject Mouse;
     public bool startled;
@@ -13,14 +14,14 @@ public class MouseAIMovement : MonoBehaviour {
     float tick;
 
     void Start () {
-        idle = true;
+        moving = true;
         xMovement = -0.02f;
         xScale = this.transform.localScale.x;
     }
 	
 	void Update () {
         StartCoroutine("Timer");
-        if (idle == true)
+        if (moving == true)
         {
             Mouse.transform.position = transform.position + new Vector3(xMovement,0,0);
             Mouse.transform.localScale = new Vector3(xScale, this.transform.localScale.y, this.transform.localScale.y);
@@ -31,7 +32,7 @@ public class MouseAIMovement : MonoBehaviour {
         }
         if (this.tag == "Startled")
         {
-            idle = false;
+            moving = false;
             startled = true;
         }
 	}
