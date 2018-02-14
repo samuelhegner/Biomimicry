@@ -26,24 +26,25 @@ public class MouseAIMovement : MonoBehaviour {
         currentState = BehaviourState.moving;
         xMovement = speed;
         xScale = this.transform.localScale.x;
+        Invoke("Timer", 0);
     }
 	
 	void Update () {
-        StartCoroutine("Timer");
         if (currentState == BehaviourState.moving)
         {
+            Invoke("Timer", 0);
             speed = 0.02f;
             Mouse.transform.position = transform.position + new Vector3(xMovement,0,0);
             Mouse.transform.localScale = new Vector3(-xScale, this.transform.localScale.y, this.transform.localScale.z);
         }
         if (currentState == BehaviourState.startled)
         {
+            Invoke("Timer", 0);
             Mouse.transform.position = transform.position + new Vector3(xMovement*8, 0, 0);
         }
         if (currentState == BehaviourState.idle)
-        {
-            StopCoroutine("Timer");
-            StartCoroutine("Idle");
+        {         
+            Invoke("Idle", 0);
             speed = 0;
         }
         if (this.tag == "Startled")
@@ -57,7 +58,7 @@ public class MouseAIMovement : MonoBehaviour {
         if (tick >= 1)
         {
             rnd = Random.Range(0, 6);
-            print(rnd);
+            //print(rnd);
             if (rnd >= 4)
             {
                 xMovement = -xMovement;
@@ -79,15 +80,9 @@ public class MouseAIMovement : MonoBehaviour {
             print(rnd2);
             if (rnd == 3)
             {
-                currentState = BehaviourState.moving;
-                StartCoroutine("Timer");
-                StopCoroutine("Idle");          
+                currentState = BehaviourState.moving;         
             }
-            if (rnd < 3)
-            {
-                print("nope");
-            }
-            tick = 0;
+            tick2 = 0;
         }
     }
 }
