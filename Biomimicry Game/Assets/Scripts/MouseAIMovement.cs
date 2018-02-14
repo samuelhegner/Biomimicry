@@ -30,6 +30,7 @@ public class MouseAIMovement : MonoBehaviour {
     }
 	
 	void Update () {
+        //print(currentState);
         if (currentState == BehaviourState.moving)
         {
             Invoke("Timer", 0);
@@ -40,7 +41,7 @@ public class MouseAIMovement : MonoBehaviour {
         if (currentState == BehaviourState.startled)
         {
             Invoke("Timer", 0);
-            Mouse.transform.position = transform.position + new Vector3(xMovement*8, 0, 0);
+            Mouse.transform.position = transform.position + new Vector3(xMovement*4, 0, 0);
         }
         if (currentState == BehaviourState.idle)
         {         
@@ -58,7 +59,7 @@ public class MouseAIMovement : MonoBehaviour {
         if (tick >= 1)
         {
             rnd = Random.Range(0, 6);
-            //print(rnd);
+            print(rnd);
             if (rnd >= 4)
             {
                 xMovement = -xMovement;
@@ -77,8 +78,8 @@ public class MouseAIMovement : MonoBehaviour {
         if(tick2 >= 1)
         {
             rnd2 = Random.Range(0, 4);
-            print(rnd2);
-            if (rnd == 3)
+            //print(rnd2);
+            if (rnd2 == 3)
             {
                 currentState = BehaviourState.moving;         
             }
