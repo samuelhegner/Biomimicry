@@ -5,13 +5,19 @@ using UnityEngine;
 public class MouseAIMovement : MonoBehaviour {
 
     public GameObject Mouse;
+    public GameObject Player;
+
     float speed = 0.02f;
     float xMovement;
+    float displacement = 0.2f;
     float rnd = 0;
     float rnd2 = 0;
     float xScale;
     float tick;
     float tick2;
+
+    float mousetimer1 = 0;
+    float mousetimer2 = 0;
 
     public enum BehaviourState
     {
@@ -30,7 +36,11 @@ public class MouseAIMovement : MonoBehaviour {
     }
 	
 	void Update () {
-        //print(currentState);
+
+        if (this.tag == "Startled")
+        {
+            currentState = BehaviourState.startled;
+        }
         if (currentState == BehaviourState.moving)
         {
             Invoke("Timer", 0);
@@ -38,19 +48,46 @@ public class MouseAIMovement : MonoBehaviour {
             Mouse.transform.position = transform.position + new Vector3(xMovement,0,0);
             Mouse.transform.localScale = new Vector3(-xScale, this.transform.localScale.y, this.transform.localScale.z);
         }
-        if (currentState == BehaviourState.startled)
+        if (currentState == BehaviourState.startled && Mouse.transform.position.x > Player.transform.position.x)
         {
-            Invoke("Timer", 0);
-            Mouse.transform.position = transform.position + new Vector3(xMovement*4, 0, 0);
+            mousetimer1 += Time.deltaTime;
+            if (mousetimer1 <= 0.5)
+            {
+                if (xScale < 0)
+                {
+                    xScale = -xScale;
+                }
+                Mouse.transform.position = transform.position + new Vector3(displacement, 0, 0);
+            }
+            if (mousetimer1 > 0.5)
+            {
+                currentState = BehaviourState.idle;
+                mousetimer1 = 0;
+                Mouse.tag = "Untagged";
+            }
         }
-        if (currentState == BehaviourState.idle)
-        {         
+        if (currentState == BehaviourState.startled && Mouse.transform.position.x <= Player.transform.position.x)
+        {
+            mousetimer2 += Time.deltaTime;
+            if (mousetimer2 <= 0.5)
+            {
+                if (xScale > 0)
+                {
+                    xScale = -xScale;
+                }
+                Mouse.transform.position = transform.position + new Vector3(-displacement, 0, 0);
+            }
+            if (mousetimer2 > 0.5)
+            {
+                currentState = BehaviourState.idle;
+                mousetimer2 = 0;
+                Mouse.tag = "Untagged";
+            }
+        }
+            if (currentState == BehaviourState.idle)
+        {
             Invoke("Idle", 0);
             speed = 0;
-        }
-        if (this.tag == "Startled")
-        {
-            currentState = BehaviourState.startled;
         }
 	}
     void Timer()
@@ -59,7 +96,6 @@ public class MouseAIMovement : MonoBehaviour {
         if (tick >= 1)
         {
             rnd = Random.Range(0, 6);
-            print(rnd);
             if (rnd >= 4)
             {
                 xMovement = -xMovement;
@@ -78,7 +114,6 @@ public class MouseAIMovement : MonoBehaviour {
         if(tick2 >= 1)
         {
             rnd2 = Random.Range(0, 4);
-            //print(rnd2);
             if (rnd2 == 3)
             {
                 currentState = BehaviourState.moving;         
