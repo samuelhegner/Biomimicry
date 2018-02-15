@@ -10,6 +10,7 @@ public class Camouflage: MonoBehaviour
     public int abilitypower;
     public bool isInvisible;
     public bool inProgress;
+    public GameObject player;
 
     public Text abilityScore;
 
@@ -19,7 +20,7 @@ public class Camouflage: MonoBehaviour
     }
     private void Update()
     {
-        abilityScore.text = "Stealth Left: " + abilitypower;
+        abilityScore.text = "Stealth Left: " + (abilitypower + 59) / 60;
         if (Input.GetKey(change))
         {
             if (isInvisible == true && inProgress == false)
@@ -37,6 +38,7 @@ public class Camouflage: MonoBehaviour
         {
             GetComponent<Renderer>().material.SetColor("_Color", color);
             abilitypower -= 1;
+            player.tag = "Stealthed";
             if (color.a >= 0)
             {
                 color.a -= 0.03f;
@@ -45,6 +47,7 @@ public class Camouflage: MonoBehaviour
         if (isInvisible == false && color.a <= 1)
         {
             GetComponent<Renderer>().material.SetColor("_Color", color);
+            player.tag = "Unstealthed";
             color.a += 0.05f;
         }
         if (color.a >= 0.999 || color.a <= 0.001)
