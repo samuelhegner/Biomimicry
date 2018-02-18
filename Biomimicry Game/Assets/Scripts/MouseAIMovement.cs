@@ -51,7 +51,7 @@ public class MouseAIMovement : MonoBehaviour {
         if (currentState == BehaviourState.startled && Mouse.transform.position.x > Player.transform.position.x)
         {
             mousetimer1 += Time.deltaTime;
-            if (mousetimer1 <= 0.5 && xScale <= 0)
+            if (mousetimer1 <= 0.5)
             {
                 Mouse.transform.position = transform.position + new Vector3(displacement, 0, 0);
             }
