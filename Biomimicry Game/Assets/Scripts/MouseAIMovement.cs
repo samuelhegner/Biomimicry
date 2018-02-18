@@ -19,8 +19,6 @@ public class MouseAIMovement : MonoBehaviour {
     float mousetimer1 = 0;
     float mousetimer2 = 0;
 
-    public bool facingLeft;
-
     public enum BehaviourState
     {
         moving,
@@ -38,15 +36,7 @@ public class MouseAIMovement : MonoBehaviour {
     }
 	
 	void Update () {
-
-        if (facingLeft == true)
-        {
-            xScale = 0.15f;
-        }
-        if (facingLeft == false)
-        {
-            xScale = -0.15f;
-        }
+    
         if (this.tag == "Startled")
         {
             currentState = BehaviourState.startled;
@@ -63,10 +53,6 @@ public class MouseAIMovement : MonoBehaviour {
             mousetimer1 += Time.deltaTime;
             if (mousetimer1 <= 0.5 && xScale <= 0)
             {
-                if (facingLeft == true)
-                {
-                    facingLeft = false;
-                }
                 Mouse.transform.position = transform.position + new Vector3(displacement, 0, 0);
             }
             if (mousetimer1 > 0.5)
@@ -81,10 +67,6 @@ public class MouseAIMovement : MonoBehaviour {
             mousetimer2 += Time.deltaTime;
             if (mousetimer2 <= 0.5)
             {
-                if (facingLeft == false)
-                {
-                    facingLeft = true;
-                }
                 Mouse.transform.position = transform.position + new Vector3(-displacement, 0, 0);
             }
             if (mousetimer2 > 0.5)

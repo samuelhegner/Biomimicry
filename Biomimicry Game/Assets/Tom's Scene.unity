@@ -630,7 +630,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -9.6, y: 0}
+  - {x: -86.85636, y: -4.64003}
   - {x: -9.558441, y: -4.1019135}
   - {x: -7.5867233, y: -3.423584}
   - {x: -5.9789658, y: -3.1240997}
@@ -659,7 +659,8 @@ EdgeCollider2D:
   - {x: 8.877281, y: -2.5762024}
   - {x: 9.055496, y: -2.5173492}
   - {x: 9.596283, y: -2.3834534}
-  - {x: 9.6, y: 0}
+  - {x: 52.02428, y: -2.3093567}
+  - {x: 60.6162, y: -2.3362274}
 --- !u!212 &752074142
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -926,7 +927,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mouse: {fileID: 1821741437}
   Player: {fileID: 374479852}
-  facingLeft: 0
   currentState: 0
 --- !u!114 &1821741443
 MonoBehaviour:
