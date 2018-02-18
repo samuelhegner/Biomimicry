@@ -64,14 +64,6 @@ public class DayNightControllerScript : MonoBehaviour
         }
 
 
-
-
-
-
-
-
-
-
         if (timer > startChangeTime && timer < endChangeTime)
         {
             duskB = false;
@@ -103,16 +95,6 @@ public class DayNightControllerScript : MonoBehaviour
             rend.color = spriteAlpha;
             rend.sprite = dawn;
         }
-
-
-
-
-
-
-
-
-
-
 
         else if (timer > dayLength - endChangeTime && timer < dayLength - startChangeTime)
         {
@@ -148,17 +130,6 @@ public class DayNightControllerScript : MonoBehaviour
             rend.sprite = dusk;
         }
 
-
-
-
-
-
-
-
-
-
-
-
         else
         {
             rend.sprite = null;
@@ -166,16 +137,6 @@ public class DayNightControllerScript : MonoBehaviour
         }
         
     }
-
-
-
-
-
-
-
-
-
-
 
     void UpdateTime() {
         startTime = Time.time;

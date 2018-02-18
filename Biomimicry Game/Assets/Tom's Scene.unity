@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7050fa80f88484543a59414504e94bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  change: 32
+  change: 101
   abilitypower: 180
   isInvisible: 0
   inProgress: 0
@@ -360,6 +360,9 @@ MonoBehaviour:
   maxSpeed: 8
   accelerationSpeed: 1
   currentSpeed: 0
+  halfspeed: 0
+  fullspeed: 0
+  body: {fileID: 305921942}
 --- !u!212 &374479856
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -878,9 +881,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1821741437}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.848, y: -2.703, z: 0}
-  m_LocalScale: {x: 0.14328347, y: 0.14328347, z: 0.14328347}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -923,6 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mouse: {fileID: 1821741437}
   Player: {fileID: 374479852}
+  facingLeft: 0
   currentState: 0
 --- !u!114 &1821741443
 MonoBehaviour:
