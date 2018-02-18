@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MouseAIMovement : MonoBehaviour {
 
-    public GameObject Mouse;
     public GameObject Player;
 
     float speed = 0.02f;
@@ -18,6 +17,9 @@ public class MouseAIMovement : MonoBehaviour {
 
     float mousetimer1 = 0;
     float mousetimer2 = 0;
+
+
+    bool right;
 
     public enum BehaviourState
     {
@@ -36,6 +38,20 @@ public class MouseAIMovement : MonoBehaviour {
     }
 	
 	void Update () {
+
+        Vector3 facingRight = new Vector3(-0.15f, this.transform.localScale.y, this.transform.localScale.z);
+        Vector3 facingLeft = new Vector3(0.15f, this.transform.localScale.y, this.transform.localScale.z);
+
+        if (right == true)
+        {
+            this.transform.localScale = facingRight;
+        }
+        else if (right == false)
+        {
+            this.transform.localScale = facingLeft;
+        }
+
+
     
         if (this.tag == "Startled")
         {
@@ -45,37 +61,47 @@ public class MouseAIMovement : MonoBehaviour {
         {
             Invoke("Timer", 0);
             speed = 0.02f;
-            Mouse.transform.position = transform.position + new Vector3(xMovement,0,0);
-            Mouse.transform.localScale = new Vector3(-xScale, this.transform.localScale.y, this.transform.localScale.z);
+            this.transform.position = transform.position + new Vector3(xMovement,0,0);
+            this.transform.localScale = new Vector3(-xScale, this.transform.localScale.y, this.transform.localScale.z);
         }
-        if (currentState == BehaviourState.startled && Mouse.transform.position.x > Player.transform.position.x)
+        if (currentState == BehaviourState.startled)
         {
+
+            if (this.transform.position.x < Player.transform.position.x)
+            {
+                right = false;
+                if (mousetimer1 <= 0.5)
+                {
+                    this.transform.position = transform.position + new Vector3(-displacement, 0, 0);
+                }
+                if (mousetimer1 > 0.5)
+                {
+                    currentState = BehaviourState.idle;
+                    mousetimer1 = 0;
+                    this.tag = "Untagged";
+                }
+            }
+            else if (this.transform.position.x > Player.transform.position.x)
+            {
+                right = true;
+
+                if (mousetimer1 <= 0.5)
+                {
+                    this.transform.position = transform.position + new Vector3(displacement, 0, 0);
+                }
+                if (mousetimer1 > 0.5)
+                {
+                    currentState = BehaviourState.idle;
+                    mousetimer1 = 0;
+                    this.tag = "Untagged";
+                }
+            }
+
             mousetimer1 += Time.deltaTime;
-            if (mousetimer1 <= 0.5)
-            {
-                Mouse.transform.position = transform.position + new Vector3(displacement, 0, 0);
-            }
-            if (mousetimer1 > 0.5)
-            {
-                currentState = BehaviourState.idle;
-                mousetimer1 = 0;
-                Mouse.tag = "Untagged";
-            }
+
+           
         }
-        if (currentState == BehaviourState.startled && Mouse.transform.position.x <= Player.transform.position.x)
-        {
-            mousetimer2 += Time.deltaTime;
-            if (mousetimer2 <= 0.5)
-            {
-                Mouse.transform.position = transform.position + new Vector3(-displacement, 0, 0);
-            }
-            if (mousetimer2 > 0.5)
-            {
-                currentState = BehaviourState.idle;
-                mousetimer2 = 0;
-                Mouse.tag = "Untagged";
-            }
-        }
+        
             if (currentState == BehaviourState.idle)
         {
             Invoke("Idle", 0);
