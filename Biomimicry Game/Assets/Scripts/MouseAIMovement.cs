@@ -35,6 +35,7 @@ public class MouseAIMovement : MonoBehaviour {
         xMovement = speed;
         xScale = this.transform.localScale.x;
         Invoke("Timer", 0);
+        right = false;
     }
 	
 	void Update () {
