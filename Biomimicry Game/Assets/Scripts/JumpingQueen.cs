@@ -58,7 +58,7 @@ public class JumpingQueen: MonoBehaviour {
         queenTick += Time.deltaTime;
         if (queenTick >= 1)
         {
-            random = Random.Range(0, queenJumpFrequency);
+            random = Random.Range(0, 10);
             if (random == 0)
             {
                 activestate = QueenBehaviourState.jumping;

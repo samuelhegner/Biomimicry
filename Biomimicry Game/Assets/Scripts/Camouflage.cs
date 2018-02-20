@@ -9,7 +9,7 @@ public class Camouflage: MonoBehaviour
     public KeyCode change;
     public int abilitypower;
     public bool isInvisible;
-    public bool inProgress;
+    public bool inProgress = false;
     public GameObject player;
 
     public Text abilityScore;
@@ -20,18 +20,19 @@ public class Camouflage: MonoBehaviour
     }
     private void Update()
     {
+        print(color.a);
         abilityScore.text = "Stealth Left: " + (abilitypower + 59) / 60;
-        if (Input.GetKey(change))
+        if (Input.GetKeyDown(change))
         {
             if (isInvisible == true && inProgress == false)
             {
-                isInvisible = false;
                 inProgress = true;
+                isInvisible = false;
             }
             else if (isInvisible == false && inProgress == false && abilitypower > 0)
             {
-                isInvisible = true;
                 inProgress = true;
+                isInvisible = true;
             }
         }
         if (isInvisible == true)
@@ -44,13 +45,13 @@ public class Camouflage: MonoBehaviour
                 color.a -= 0.03f;
             }
         }
-        if (isInvisible == false && color.a <= 1)
+        if (isInvisible == false && color.a <= 1.1)
         {
             GetComponent<Renderer>().material.SetColor("_Color", color);
             player.tag = "Unstealthed";
-            color.a += 0.05f;
+            color.a += 0.1f;
         }
-        if (color.a >= 0.999 || color.a <= 0.001)
+        if (color.a >= 1.13 || color.a <= -0.0)
         {
             inProgress = false;
         }
