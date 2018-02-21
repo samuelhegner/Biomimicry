@@ -12,7 +12,7 @@ public class Jumping : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        canJump = false;
+        canJump = true; // Changed it to true because can't jump at all when game start
     }
     private void Update()
     {
