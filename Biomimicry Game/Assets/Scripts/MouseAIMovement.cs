@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MouseAIMovement : MonoBehaviour {
 
-    public GameObject Player;
-
     float speed = 0.02f;
     float xMovement;
     float displacement = 0.2f;
@@ -14,7 +12,7 @@ public class MouseAIMovement : MonoBehaviour {
     float xScale;
     float tick;
     float tick2;
-
+    Transform playerTransform;
     float mousetimer1 = 0;
     float mousetimer2 = 0;
 
@@ -36,6 +34,7 @@ public class MouseAIMovement : MonoBehaviour {
         xScale = this.transform.localScale.x;
         Invoke("Timer", 0);
         right = false;
+        playerTransform = GameObject.Find("Character Body").GetComponent<Transform>();
     }
 	
 	void Update () {
@@ -68,7 +67,7 @@ public class MouseAIMovement : MonoBehaviour {
         if (currentState == BehaviourState.startled)
         {
 
-            if (this.transform.position.x < Player.transform.position.x)
+            if (this.transform.position.x < playerTransform.position.x)
             {
                 right = false;
                 if (mousetimer1 <= 0.5)
@@ -79,10 +78,10 @@ public class MouseAIMovement : MonoBehaviour {
                 {
                     currentState = BehaviourState.idle;
                     mousetimer1 = 0;
-                    this.tag = "Untagged";
+                    this.tag = "NPC";
                 }
             }
-            else if (this.transform.position.x > Player.transform.position.x)
+            else if (this.transform.position.x > playerTransform.position.x)
             {
                 right = true;
 
@@ -94,7 +93,7 @@ public class MouseAIMovement : MonoBehaviour {
                 {
                     currentState = BehaviourState.idle;
                     mousetimer1 = 0;
-                    this.tag = "Untagged";
+                    this.tag = "NPC";
                 }
             }
 

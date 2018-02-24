@@ -11,7 +11,7 @@ public class JumpingQueen: MonoBehaviour {
     float queenJumpHeight = 40;
 
     int queenJumpFrequency;
-
+    Transform Player;
     public Rigidbody2D rigid;
 
     Vector3 queenStartPosition;
@@ -25,6 +25,7 @@ public class JumpingQueen: MonoBehaviour {
     public QueenBehaviourState activestate;
 
 	void Start () {
+        Player = GameObject.Find("Character Eyes").GetComponent<Transform>();
         rigid.GetComponent<Rigidbody2D>();
         activestate = QueenBehaviourState.idle;
         queenStartPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
@@ -59,7 +60,7 @@ public class JumpingQueen: MonoBehaviour {
         if (queenTick >= 1)
         {
             random = Random.Range(0, 10);
-            if (random == 0)
+            if (random == 0 && Player.position.x > rigid.transform.position.x + 8 || Player.position.x < rigid.transform.position.x - 8)
             {
                 activestate = QueenBehaviourState.jumping;
             }

@@ -10,12 +10,13 @@ public class JumpingEnemy : MonoBehaviour {
     float jumptimer;
     float jumpHeight = 40;
 
-    public GameObject Queen;
+    Transform Queen;
+    Transform Player;
     float queenStart;
 
     float tickCount = 1;
 
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
 
     Vector3 startPosition;
 
@@ -29,8 +30,10 @@ public class JumpingEnemy : MonoBehaviour {
     public BehaviourState currentstate;
 
 	void Start () {
-        queenStart = Queen.transform.position.y;
-        rb.GetComponent<Rigidbody2D>();
+        Queen = GameObject.Find("Queen").GetComponent<Transform>();
+        Player = GameObject.Find("Character Eyes").GetComponent<Transform>();
+        queenStart = Queen.position.y;
+        rb = GetComponent<Rigidbody2D>();
         currentstate = BehaviourState.idle;
         startPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 	}
@@ -38,7 +41,7 @@ public class JumpingEnemy : MonoBehaviour {
 
     void Update()
     {
-        if (Queen.transform.position.y > queenStart && currentstate != BehaviourState.encouraged)
+        if (Queen.position.y > queenStart && currentstate != BehaviourState.encouraged)
         {
             currentstate = BehaviourState.encouraged;
         }
@@ -66,13 +69,14 @@ public class JumpingEnemy : MonoBehaviour {
             tickCount = 0.03f;
         }
     }
+    
     void Timer()
     {
         tick += Time.deltaTime;
         if (tick >= tickCount)
         {
             rnd = Random.Range(0, 7);
-            if (rnd == 0)
+            if (rnd == 0 && Player.position.x > rb.transform.position.x + 8 || Player.position.x <rb.transform.position.x - 8)
             {
                 currentstate = BehaviourState.jumping;
             }

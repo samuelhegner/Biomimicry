@@ -20,7 +20,6 @@ public class Camouflage: MonoBehaviour
     }
     private void Update()
     {
-        print(color.a);
         abilityScore.text = "Stealth Left: " + (abilitypower + 59) / 60;
         if (Input.GetKeyDown(change))
         {
