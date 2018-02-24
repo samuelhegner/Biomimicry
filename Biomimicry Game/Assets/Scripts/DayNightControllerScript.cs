@@ -12,7 +12,7 @@ public class DayNightControllerScript : MonoBehaviour
     Color spriteAlpha;
     float duration = 3.0F;
 
-    public float timer;
+    float timer;
     public bool duskB, dawnB, down;
 
     Camera cam;
@@ -29,6 +29,8 @@ public class DayNightControllerScript : MonoBehaviour
 
 
     float startTime;
+
+    public bool daytime;
 
 
     void Start()
@@ -61,6 +63,14 @@ public class DayNightControllerScript : MonoBehaviour
         if (timer >= dayLength)
         {
             timer = 0;
+        }
+
+        if (timer > dayLength / 4 && timer < (dayLength / 4) * 3)
+        {
+            daytime = true;
+        }
+        else {
+            daytime = false;
         }
 
 
