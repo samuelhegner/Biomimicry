@@ -15,7 +15,7 @@ public class JumpingEnemy : MonoBehaviour {
 
     float tickCount = 1;
 
-    public Rigidbody2D rb;
+	Rigidbody2D rb;
 
     Vector3 startPosition;
 
@@ -30,7 +30,7 @@ public class JumpingEnemy : MonoBehaviour {
 
 	void Start () {
         queenStart = Queen.transform.position.y;
-        rb.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         currentstate = BehaviourState.idle;
         startPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 	}

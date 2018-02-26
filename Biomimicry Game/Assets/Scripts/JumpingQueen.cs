@@ -11,9 +11,7 @@ public class JumpingQueen: MonoBehaviour {
     float queenJumpHeight = 40;
 
     int queenJumpFrequency;
-
-    public Rigidbody2D rigid;
-
+	Rigidbody2D rigid;
     Vector3 queenStartPosition;
 
     public enum QueenBehaviourState
@@ -25,7 +23,7 @@ public class JumpingQueen: MonoBehaviour {
     public QueenBehaviourState activestate;
 
 	void Start () {
-        rigid.GetComponent<Rigidbody2D>();
+        rigid = GetComponent<Rigidbody2D>();
         activestate = QueenBehaviourState.idle;
         queenStartPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 	}

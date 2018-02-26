@@ -20,7 +20,6 @@ public class Camouflage: MonoBehaviour
     }
     private void Update()
     {
-        print(color.a);
         abilityScore.text = "Stealth Left: " + (abilitypower + 59) / 60;
         if (Input.GetKeyDown(change))
         {
@@ -49,9 +48,12 @@ public class Camouflage: MonoBehaviour
         {
             GetComponent<Renderer>().material.SetColor("_Color", color);
             player.tag = "Unstealthed";
-            color.a += 0.1f;
+			if (color.a <= 1)
+			{
+				color.a += 0.1f;
+			}
         }
-        if (color.a >= 1.13 || color.a <= -0.0)
+        if (color.a >= 1 || color.a <= -0.0)
         {
             inProgress = false;
         }
