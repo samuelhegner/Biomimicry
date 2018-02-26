@@ -1,0 +1,282 @@
+fileFormatVersion: 2
+guid: 160e0ea149a94e04db5b7870d0719d64
+timeCreated: 1519669086
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cricket Leg Upper 1
+    21300002: Cricket Leg Upper 2
+    21300004: Cricket Body
+    21300006: Cricket Neck
+    21300008: Cricket Head
+    21300010: Cricket Wing 1
+    21300012: Cricket Wing 2
+    21300014: Cricket Leg Lower 1
+    21300016: Cricket Leg Lower 2
+    21300018: Cricket Arm 1
+    21300020: Cricket Arm 2
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cricket Leg Upper 1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 823
+        width: 236
+        height: 189
+      alignment: 9
+      pivot: {x: 0.90713656, y: 0.103214}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cricket Leg Upper 2
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 821
+        width: 234
+        height: 188
+      alignment: 9
+      pivot: {x: 0.91562384, y: 0.119801946}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cricket Body
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 439
+        width: 375
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cricket Neck
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 491
+        width: 202
+        height: 177
+      alignment: 9
+      pivot: {x: 0.46519545, y: 0.42055878}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cricket Head
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 469
+        width: 335
+        height: 225
+      alignment: 9
+      pivot: {x: 0.632916, y: 0.33334988}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cricket Wing 1
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 184
+        width: 537
+        height: 166
+      alignment: 9
+      pivot: {x: 0.96695805, y: 0.21058986}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cricket Wing 2
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 0
+        width: 539
+        height: 165
+      alignment: 9
+      pivot: {x: 0.9565295, y: 0.812469}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cricket Leg Lower 1
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 35
+        width: 73
+        height: 235
+      alignment: 9
+      pivot: {x: 0.85313267, y: 0.9487588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cricket Leg Lower 2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 36
+        width: 72
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cricket Arm 1
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 872
+        width: 147
+        height: 137
+      alignment: 9
+      pivot: {x: 0.8826157, y: 0.8848846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cricket Arm 2
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 912
+        width: 171
+        height: 98
+      alignment: 9
+      pivot: {x: 0.109414265, y: 0.82283175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
