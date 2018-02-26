@@ -20,7 +20,11 @@ public class Camouflage: MonoBehaviour
     }
     private void Update()
     {
+<<<<<<< HEAD
         abilityScore.text = "Stealth Left: " + (abilitypower + 59) / 60;
+=======
+        abilityScore.text = "Stealth stored for night: " + (abilitypower + 59) / 60;
+>>>>>>> ef4244912d41de01c73265d945a4e2e0fe2e82b7
         if (Input.GetKeyDown(change))
         {
             if (isInvisible == true && inProgress == false)
@@ -61,6 +65,13 @@ public class Camouflage: MonoBehaviour
         {
             isInvisible = false;
             abilitypower = 0;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "NPC")
+        {
+            collision.gameObject.SetActive(false);
         }
     }
 }
