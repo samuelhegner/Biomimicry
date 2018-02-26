@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Stealthed
-  - Unstealthed
-  - Startled
-<<<<<<< HEAD
-  - Ground
-=======
-  - NPC
->>>>>>> ef4244912d41de01c73265d945a4e2e0fe2e82b7
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -21,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - Cricket
-  - Player
-  - Mouse
+  - 
+  - 
+  - 
   - 
   - 
   - 
