@@ -10,12 +10,6 @@ public class Consume : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "NPC")
-        {
-            collision.gameObject.SetActive(false);
-        }
-    }
+    
 
 }

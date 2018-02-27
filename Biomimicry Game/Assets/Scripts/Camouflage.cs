@@ -36,7 +36,7 @@ public class Camouflage: MonoBehaviour
         }
         if (isInvisible == true)
         {
-            GetComponent<Renderer>().material.SetColor("_Color", color);
+            GetComponent<Renderer>().material.SetColor("_Color", color);     
             abilitypower -= 1;
             player.tag = "Stealthed";
             if (color.a >= 0)
@@ -65,6 +65,7 @@ public class Camouflage: MonoBehaviour
         if (collision.tag == "NPC")
         {
             collision.gameObject.SetActive(false);
+            abilitypower += 60;
         }
     }
 }

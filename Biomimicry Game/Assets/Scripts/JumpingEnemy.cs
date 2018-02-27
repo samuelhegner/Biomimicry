@@ -11,7 +11,8 @@ public class JumpingEnemy : MonoBehaviour {
     float jumpHeight = 40;
 
     Transform Queen;
-    Transform Player;
+    GameObject Player;
+
     float queenStart;
 
     float tickCount = 1;
@@ -31,7 +32,7 @@ public class JumpingEnemy : MonoBehaviour {
 
 	void Start () {
         Queen = GameObject.Find("Queen").GetComponent<Transform>();
-        Player = GameObject.Find("Character Eyes").GetComponent<Transform>();
+        Player = GameObject.Find("Character Eyes").GetComponent<GameObject>();
         queenStart = Queen.position.y;
         rb = GetComponent<Rigidbody2D>();
         currentstate = BehaviourState.idle;
@@ -47,11 +48,13 @@ public class JumpingEnemy : MonoBehaviour {
         }
         if (currentstate == BehaviourState.idle)
         {
+            this.tag = "Untagged";
             tickCount = 1;
             Invoke("Timer", 0);
         }
         if (currentstate == BehaviourState.jumping)
         {
+            this.tag = "NPC";
             jumptimer += Time.deltaTime;
             if (jumptimer < 0.5)
             {
@@ -65,6 +68,7 @@ public class JumpingEnemy : MonoBehaviour {
         }
         if (currentstate == BehaviourState.encouraged)
         {
+            this.tag = "Untagged";
             Invoke("Timer", 0);
             tickCount = 0.03f;
         }
@@ -76,9 +80,16 @@ public class JumpingEnemy : MonoBehaviour {
         if (tick >= tickCount)
         {
             rnd = Random.Range(0, 7);
-            if (rnd == 0 && Player.position.x > rb.transform.position.x + 8 || Player.position.x <rb.transform.position.x - 8)
+            if (rnd == 0)
             {
-                currentstate = BehaviourState.jumping;
+                if (Player.tag == "Unstealthed" && Player.transform.position.x > rb.transform.position.x + 8 || Player.transform.position.x < rb.transform.position.x - 8)
+                {
+                    currentstate = BehaviourState.jumping;
+                }
+                else if(Player.tag == "Stealthed")
+                {
+                    currentstate = BehaviourState.idle;
+                }
             }
             tick = 0; 
         }
