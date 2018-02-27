@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         if (body.tag == "Stealthed")
         {
             maxSpeed = halfspeed;

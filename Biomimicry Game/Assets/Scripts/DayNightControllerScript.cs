@@ -54,7 +54,6 @@ public class DayNightControllerScript : MonoBehaviour
 
     void Update()
     {
-        print(down);
         float t = Mathf.PingPong(Time.time, duration) / duration;
         cam.backgroundColor = Color.Lerp(color1, color2, t);
 

@@ -11,17 +11,12 @@ public class JumpingEnemy : MonoBehaviour {
     float jumpHeight = 40;
 
     Transform Queen;
-    GameObject Player;
-
+    Transform PlayerTransform;
+    Transform PlayerBody;
     float queenStart;
-
+    
     float tickCount = 1;
-
-<<<<<<< HEAD
-	Rigidbody2D rb;
-=======
     Rigidbody2D rb;
->>>>>>> ef4244912d41de01c73265d945a4e2e0fe2e82b7
 
     Vector3 startPosition;
 
@@ -35,13 +30,9 @@ public class JumpingEnemy : MonoBehaviour {
     public BehaviourState currentstate;
 
 	void Start () {
-<<<<<<< HEAD
-        queenStart = Queen.transform.position.y;
-=======
         Queen = GameObject.Find("Queen").GetComponent<Transform>();
-        Player = GameObject.Find("Character Eyes").GetComponent<GameObject>();
-        queenStart = Queen.position.y;
->>>>>>> ef4244912d41de01c73265d945a4e2e0fe2e82b7
+        PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
+        PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         currentstate = BehaviourState.idle;
         startPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
@@ -50,6 +41,7 @@ public class JumpingEnemy : MonoBehaviour {
 
     void Update()
     {
+        print(PlayerTransform.tag);
         if (Queen.position.y > queenStart && currentstate != BehaviourState.encouraged)
         {
             currentstate = BehaviourState.encouraged;
@@ -90,11 +82,15 @@ public class JumpingEnemy : MonoBehaviour {
             rnd = Random.Range(0, 7);
             if (rnd == 0)
             {
-                if (Player.tag == "Unstealthed" && Player.transform.position.x > rb.transform.position.x + 8 || Player.transform.position.x < rb.transform.position.x - 8)
+                if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > rb.transform.position.x + 8 || PlayerTransform.position.x < rb.transform.position.x - 8)
                 {
                     currentstate = BehaviourState.jumping;
                 }
-                else if(Player.tag == "Stealthed")
+                else if (PlayerBody.tag == "Stealthed")
+                {
+                    currentstate = BehaviourState.jumping;
+                }
+                else if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x < rb.transform.position.x + 8 || PlayerTransform.position.x > rb.transform.position.x - 8)
                 {
                     currentstate = BehaviourState.idle;
                 }
