@@ -20,7 +20,11 @@ public class Camouflage: MonoBehaviour
     }
     private void Update()
     {
+<<<<<<< HEAD
+        abilityScore.text = "Stealth Left: " + (abilitypower + 59) / 60;
+=======
         abilityScore.text = "Stealth stored for night: " + (abilitypower + 59) / 60;
+>>>>>>> ef4244912d41de01c73265d945a4e2e0fe2e82b7
         if (Input.GetKeyDown(change))
         {
             if (isInvisible == true && inProgress == false)
@@ -48,9 +52,12 @@ public class Camouflage: MonoBehaviour
         {
             GetComponent<Renderer>().material.SetColor("_Color", color);
             player.tag = "Unstealthed";
-            color.a += 0.1f;
+			if (color.a <= 1)
+			{
+				color.a += 0.1f;
+			}
         }
-        if (color.a >= 1.13 || color.a <= -0.0)
+        if (color.a >= 1 || color.a <= -0.0)
         {
             inProgress = false;
         }

@@ -17,7 +17,11 @@ public class JumpingEnemy : MonoBehaviour {
 
     float tickCount = 1;
 
+<<<<<<< HEAD
+	Rigidbody2D rb;
+=======
     Rigidbody2D rb;
+>>>>>>> ef4244912d41de01c73265d945a4e2e0fe2e82b7
 
     Vector3 startPosition;
 
@@ -31,9 +35,13 @@ public class JumpingEnemy : MonoBehaviour {
     public BehaviourState currentstate;
 
 	void Start () {
+<<<<<<< HEAD
+        queenStart = Queen.transform.position.y;
+=======
         Queen = GameObject.Find("Queen").GetComponent<Transform>();
         Player = GameObject.Find("Character Eyes").GetComponent<GameObject>();
         queenStart = Queen.position.y;
+>>>>>>> ef4244912d41de01c73265d945a4e2e0fe2e82b7
         rb = GetComponent<Rigidbody2D>();
         currentstate = BehaviourState.idle;
         startPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
