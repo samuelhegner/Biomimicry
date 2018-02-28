@@ -92,7 +92,6 @@ public class DayNightControllerScript : MonoBehaviour
                 {
                     down = true;
                     dawnB = false;
-                    print("Switch");
                 }
             }
             else if (down == true) {

@@ -41,10 +41,12 @@ public class JumpingEnemy : MonoBehaviour {
 
     void Update()
     {
-        print(PlayerTransform.tag);
         if (Queen.position.y > queenStart && currentstate != BehaviourState.encouraged)
         {
-            currentstate = BehaviourState.encouraged;
+            if (Queen.position.x < transform.position.x + 40 || Queen.position.x > transform.position.x - 40)
+            {
+                currentstate = BehaviourState.encouraged;
+            }
         }
         if (currentstate == BehaviourState.idle)
         {
@@ -54,13 +56,16 @@ public class JumpingEnemy : MonoBehaviour {
         }
         if (currentstate == BehaviourState.jumping)
         {
-            this.tag = "NPC";
             jumptimer += Time.deltaTime;
-            if (jumptimer < 0.5)
+            if (jumptimer < 0.6)
             {
                 rb.AddForce(transform.up * jumpHeight);
             }
-            if (this.transform.position.y <= startPosition.y && jumptimer > 0.5)
+            if (jumptimer > 0.6)
+            {
+                this.tag = "NPC";
+            }
+            if (this.transform.position.y <= startPosition.y && jumptimer > 0.6)
             {
                 jumptimer = 0;
                 currentstate = BehaviourState.idle;

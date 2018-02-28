@@ -17,7 +17,6 @@ public class Groundcheck : MonoBehaviour {
         if (collision.tag == "NPC" || collision.tag == "Ground")
         {
             canJump = false;
-			print ("Test");
         }
     }
 }

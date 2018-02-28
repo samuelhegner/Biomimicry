@@ -9,6 +9,7 @@ TagManager:
   - Unstealthed
   - Stealthed
   - Startled
+  - Queen
   layers:
   - Default
   - TransparentFX
