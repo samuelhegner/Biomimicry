@@ -456,7 +456,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: 0e0edb02e68959f468ed8e6d50e06186, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -486,10 +486,9 @@ MonoBehaviour:
   down: 0
   dusk: {fileID: 21300000, guid: 058e1a71e04a36242a5a54e4a3c58296, type: 3}
   dawn: {fileID: 21300000, guid: 0e0edb02e68959f468ed8e6d50e06186, type: 3}
-  startChangeTime: 10
-  changeDuration: 5
-  dayLength: 30
-  daytime: 0
+  startChangeTime: 40
+  changeDuration: 20
+  dayLength: 240
 --- !u!4 &589318682
 Transform:
   m_ObjectHideFlags: 0

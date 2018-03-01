@@ -30,7 +30,6 @@ public class DayNightControllerScript : MonoBehaviour
 
     float startTime;
 
-    public bool daytime;
 
 
     void Start()
@@ -66,10 +65,10 @@ public class DayNightControllerScript : MonoBehaviour
 
         if (timer > dayLength / 4 && timer < (dayLength / 4) * 3)
         {
-            daytime = true;
+            DayTimeTracker.ChangeDay();
         }
         else {
-            daytime = false;
+            DayTimeTracker.ChangeNight();
         }
 
 
@@ -148,5 +147,22 @@ public class DayNightControllerScript : MonoBehaviour
 
     void UpdateTime() {
         startTime = Time.time;
-    } 
+    }
 }
+public static class DayTimeTracker {
+
+    public static bool daytime;
+
+
+    public static void ChangeDay() {
+        daytime = true;
+    }
+
+
+    public static void ChangeNight()
+    {
+        daytime = false;
+    }
+
+}
+

@@ -38,6 +38,7 @@ public class JumpingQueen: MonoBehaviour {
     void Update()
     {
 
+
         if (activestate == QueenBehaviourState.idle)
         {
             queenJumpFrequency = 10;
@@ -56,6 +57,8 @@ public class JumpingQueen: MonoBehaviour {
                 activestate = QueenBehaviourState.idle;
             }
         }
+
+
     }
     void Timer()
     {
