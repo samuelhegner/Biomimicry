@@ -486,9 +486,9 @@ MonoBehaviour:
   down: 0
   dusk: {fileID: 21300000, guid: 058e1a71e04a36242a5a54e4a3c58296, type: 3}
   dawn: {fileID: 21300000, guid: 0e0edb02e68959f468ed8e6d50e06186, type: 3}
-  startChangeTime: 40
-  changeDuration: 20
-  dayLength: 240
+  startChangeTime: 10
+  changeDuration: 5
+  dayLength: 40
 --- !u!4 &589318682
 Transform:
   m_ObjectHideFlags: 0
@@ -519,8 +519,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!68 &752074141
-EdgeCollider2D:
+--- !u!61 &752074141
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -531,40 +531,19 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.4830494, y: -4.4889565}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.2, y: 10.88}
+    newSize: {x: 19.2, y: 10.88}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 87.371735, y: 1.9020872}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -86.85636, y: -4.64003}
-  - {x: -9.558441, y: -4.1019135}
-  - {x: -7.5867233, y: -3.423584}
-  - {x: -5.9789658, y: -3.1240997}
-  - {x: -5.4282303, y: -3.1472778}
-  - {x: -4.920738, y: -3.1046448}
-  - {x: -4.1335297, y: -3.2409973}
-  - {x: -4.121231, y: -3.3093262}
-  - {x: -3.2397385, y: -3.510498}
-  - {x: -2.5696182, y: -3.6110077}
-  - {x: -1.437706, y: -3.493515}
-  - {x: -1.3791199, y: -3.4712372}
-  - {x: 1.9487, y: -3.4780731}
-  - {x: 2.6111374, y: -3.5044708}
-  - {x: 2.99057, y: -3.4852142}
-  - {x: 4.1824875, y: -3.3583374}
-  - {x: 4.4547195, y: -3.3063202}
-  - {x: 5.007019, y: -3.2533264}
-  - {x: 5.111969, y: -3.2489014}
-  - {x: 5.387047, y: -3.2265167}
-  - {x: 5.5994186, y: -3.2088928}
-  - {x: 6.7406006, y: -3.0774536}
-  - {x: 7.242195, y: -3.018219}
-  - {x: 7.6688385, y: -2.918045}
-  - {x: 8.201454, y: -2.7770996}
-  - {x: 8.473114, y: -2.684845}
-  - {x: 8.877281, y: -2.5762024}
-  - {x: 9.055496, y: -2.5173492}
-  - {x: 9.596283, y: -2.3834534}
-  - {x: 52.02428, y: -2.3093567}
-  - {x: 60.6162, y: -2.3362274}
 --- !u!212 &752074142
 SpriteRenderer:
   m_ObjectHideFlags: 0

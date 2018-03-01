@@ -41,46 +41,52 @@ public class JumpingEnemy : MonoBehaviour {
 
     void Update()
     {
-        if (Queen.position.y > queenStart && currentstate != BehaviourState.encouraged)
+        if (DayTimeTracker.daytime == false)
         {
-            if (Queen.position.x < transform.position.x + 40 || Queen.position.x > transform.position.x - 40)
+            if (Queen.position.y > queenStart && currentstate != BehaviourState.encouraged)
             {
-                currentstate = BehaviourState.encouraged;
+                if (Queen.position.x < transform.position.x + 40 || Queen.position.x > transform.position.x - 40)
+                {
+                    currentstate = BehaviourState.encouraged;
+                }
             }
-        }
-        if (currentstate == BehaviourState.idle)
-        {
-            this.tag = "Untagged";
-            tickCount = 1;
-            Invoke("Timer", 0);
-        }
-        if (currentstate == BehaviourState.jumping)
-        {
-            print(jumptimer);
-            jumptimer += Time.deltaTime;
-            if (jumptimer < 0.6)
-            {
-                rb.AddForce(transform.up * jumpHeight);
-            }
-            if (jumptimer > 0.6 && jumptimer < 1.3)
-            {
-                this.tag = "NPC";
-            }
-            else if (jumptimer > 1.3)
+            if (currentstate == BehaviourState.idle)
             {
                 this.tag = "Untagged";
+                tickCount = 1;
+                Invoke("Timer", 0);
             }
-            if (this.transform.position.y <= startPosition.y && jumptimer > 0.6)
+            if (currentstate == BehaviourState.jumping)
             {
-                jumptimer = 0;
-                currentstate = BehaviourState.idle;
+                jumptimer += Time.deltaTime;
+                if (jumptimer < 0.6)
+                {
+                    rb.AddForce(transform.up * jumpHeight);
+                }
+                if (jumptimer > 0.6 && jumptimer < 1.3)
+                {
+                    this.tag = "NPC";
+                }
+                else if (jumptimer > 1.3)
+                {
+                    this.tag = "Untagged";
+                }
+                if (this.transform.position.y <= startPosition.y && jumptimer > 0.6)
+                {
+                    jumptimer = 0;
+                    currentstate = BehaviourState.idle;
+                }
+            }
+            if (currentstate == BehaviourState.encouraged)
+            {
+                this.tag = "Untagged";
+                Invoke("Timer", 0);
+                tickCount = 0.03f;
             }
         }
-        if (currentstate == BehaviourState.encouraged)
+        else if (DayTimeTracker.daytime == true)
         {
-            this.tag = "Untagged";
-            Invoke("Timer", 0);
-            tickCount = 0.03f;
+
         }
     }
     
@@ -92,7 +98,6 @@ public class JumpingEnemy : MonoBehaviour {
             rnd = Random.Range(0, 7);
             if (rnd == 0)
             {
-                print("Bing Bong");
                 if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > transform.position.x + 8 || PlayerTransform.position.x < transform.position.x - 8)
                 {
                     currentstate = BehaviourState.jumping;

@@ -37,28 +37,31 @@ public class JumpingQueen: MonoBehaviour {
 
     void Update()
     {
-
-
-        if (activestate == QueenBehaviourState.idle)
+        if (DayTimeTracker.daytime == false)
         {
-            queenJumpFrequency = 10;
-            Invoke("Timer", 0);
+            if (activestate == QueenBehaviourState.idle)
+            {
+                queenJumpFrequency = 10;
+                Invoke("Timer", 0);
+            }
+            if (activestate == QueenBehaviourState.jumping)
+            {
+                queenJumpTimer += Time.deltaTime;
+                if (queenJumpTimer < 0.5)
+                {
+                    rigid.AddForce(transform.up * queenJumpHeight);
+                }
+                if (this.transform.position.y <= queenStartPosition.y && queenJumpTimer > 0.5)
+                {
+                    queenJumpTimer = 0;
+                    activestate = QueenBehaviourState.idle;
+                }
+            }
         }
-        if (activestate == QueenBehaviourState.jumping)
+        if(DayTimeTracker.daytime == true)
         {
-            queenJumpTimer += Time.deltaTime;
-            if (queenJumpTimer < 0.5)
-            {
-                rigid.AddForce(transform.up * queenJumpHeight);
-            }
-            if (this.transform.position.y <= queenStartPosition.y && queenJumpTimer > 0.5)
-            {
-                queenJumpTimer = 0;
-                activestate = QueenBehaviourState.idle;
-            }
+
         }
-
-
     }
     void Timer()
     {

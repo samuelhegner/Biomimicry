@@ -106,7 +106,6 @@ public class MouseAIMovement : MonoBehaviour {
         }
         if(DayTimeTracker.daytime == true)
         {
-            this.gameObject.SetActive(false);
         }
 	}
     void Timer()

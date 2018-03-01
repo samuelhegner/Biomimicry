@@ -11,8 +11,6 @@ public class Movement : MonoBehaviour
     public float fullspeed;
     public GameObject body;
     
-
-   
     void Start()
     {
         halfspeed = maxSpeed / 3;
@@ -37,6 +35,5 @@ public class Movement : MonoBehaviour
         transform.position += move1 * maxSpeed * Time.deltaTime;
 
         currentSpeed = move * accelerationSpeed;
-        
     }
 }
