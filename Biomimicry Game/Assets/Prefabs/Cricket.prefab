@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 61747314128449962}
   - component: {fileID: 50880717565230414}
   - component: {fileID: 114545310634594038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cricket
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1495521f654f4438b6ac2e73129e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 50880717565230414}
-  currentstate: 1
+  currentstate: 0
 --- !u!212 &212901332521531044
 SpriteRenderer:
   m_ObjectHideFlags: 1

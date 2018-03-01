@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 61065603777049758}
   - component: {fileID: 50627745605979826}
   - component: {fileID: 114478835358583938}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Queen
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc102d3fd2942d4b909848eafd1e9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid: {fileID: 0}
   activestate: 0
 --- !u!212 &212742322067018736
 SpriteRenderer:

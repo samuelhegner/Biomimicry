@@ -56,14 +56,19 @@ public class JumpingEnemy : MonoBehaviour {
         }
         if (currentstate == BehaviourState.jumping)
         {
+            print(jumptimer);
             jumptimer += Time.deltaTime;
             if (jumptimer < 0.6)
             {
                 rb.AddForce(transform.up * jumpHeight);
             }
-            if (jumptimer > 0.6)
+            if (jumptimer > 0.6 && jumptimer < 1.3)
             {
                 this.tag = "NPC";
+            }
+            else if (jumptimer > 1.3)
+            {
+                this.tag = "Untagged";
             }
             if (this.transform.position.y <= startPosition.y && jumptimer > 0.6)
             {
@@ -87,7 +92,8 @@ public class JumpingEnemy : MonoBehaviour {
             rnd = Random.Range(0, 7);
             if (rnd == 0)
             {
-                if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > rb.transform.position.x + 8 || PlayerTransform.position.x < rb.transform.position.x - 8)
+                print("Bing Bong");
+                if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > transform.position.x + 8 || PlayerTransform.position.x < transform.position.x - 8)
                 {
                     currentstate = BehaviourState.jumping;
                 }
@@ -95,7 +101,7 @@ public class JumpingEnemy : MonoBehaviour {
                 {
                     currentstate = BehaviourState.jumping;
                 }
-                else if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x < rb.transform.position.x + 8 || PlayerTransform.position.x > rb.transform.position.x - 8)
+                else if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x < transform.position.x + 8 || PlayerTransform.position.x > transform.position.x - 8)
                 {
                     currentstate = BehaviourState.idle;
                 }
