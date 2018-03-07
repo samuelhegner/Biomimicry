@@ -95,20 +95,23 @@ public class JumpingEnemy : MonoBehaviour {
         tick += Time.deltaTime;
         if (tick >= tickCount)
         {
-            rnd = Random.Range(0, 7);
+            rnd = Random.Range(0, 4);
             if (rnd == 0)
             {
                 if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > transform.position.x + 8 || PlayerTransform.position.x < transform.position.x - 8)
                 {
                     currentstate = BehaviourState.jumping;
+                    print("Jump");
                 }
                 else if (PlayerBody.tag == "Stealthed")
                 {
                     currentstate = BehaviourState.jumping;
+                    print("Jump");
                 }
                 else if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x < transform.position.x + 8 || PlayerTransform.position.x > transform.position.x - 8)
                 {
                     currentstate = BehaviourState.idle;
+                    print("Didn't");
                 }
             }
             tick = 0; 
