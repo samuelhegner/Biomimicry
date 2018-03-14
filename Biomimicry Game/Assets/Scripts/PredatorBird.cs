@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PredatorBird : MonoBehaviour {
+public class PredatorBird : MonoBehaviour
+{
 
     Rigidbody2D Eagle;
     Transform PlayerTransform;
@@ -14,17 +15,22 @@ public class PredatorBird : MonoBehaviour {
     float timer;
     float rnd;
 
-	void Start () {
+    Vector3 UpdatedPlayerPosition = new Vector3(0,20,0);
+
+    void Start()
+    {
         Eagle = GetComponent<Rigidbody2D>();
-        PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
         EagleX = PlayerTransform.position.x + 12;
         EagleY = PlayerTransform.position.y + 10;
     }
-	
 
-	void Update () {
-        print(DayTimeTracker.daytime);
+
+    void Update()
+    {
+
+        PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
+
         if (DayTimeTracker.daytime == true)
         {
             Invoke("Timer", 0);
@@ -33,7 +39,7 @@ public class PredatorBird : MonoBehaviour {
         {
             Eagle.transform.position = new Vector3(PlayerTransform.position.x, PlayerTransform.position.y + EagleY, 0);
         }
-	}
+    }
 
     void Timer()
     {
@@ -41,11 +47,17 @@ public class PredatorBird : MonoBehaviour {
         if (timer >= 1)
         {
             rnd = Random.Range(0, 4);
-          if (rnd == 0)
-          {
-            Eagle.transform.position = new Vector3(EagleX, EagleY, 0);
-          }
-         
-       }
+            if (rnd == 0)
+            {
+                Invoke("SetPlayerPosition", 0);
+                Eagle.transform.position = new Vector3(UpdatedPlayerPosition.x + 12, UpdatedPlayerPosition.y + 10, 0);
+            }
+            timer = 0;
+        }
+    }
+
+    void SetPlayerPosition()
+    {
+        UpdatedPlayerPosition = PlayerTransform.position;
     }
 }
