@@ -8,10 +8,18 @@ public class PredatorBird : MonoBehaviour {
     Transform PlayerTransform;
     Transform PlayerBody;
 
+    float EagleX;
+    float EagleY;
+
+    float timer;
+    float rnd;
+
 	void Start () {
         Eagle = GetComponent<Rigidbody2D>();
         PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
+        EagleX = PlayerTransform.position.x + 40;
+        EagleY = PlayerTransform.position.y + 50;
     }
 	
 
@@ -19,11 +27,25 @@ public class PredatorBird : MonoBehaviour {
         print(DayTimeTracker.daytime);
         if (DayTimeTracker.daytime == true)
         {
-            Eagle.transform.localScale;
+            Invoke("Timer", 0);
         }
         if (DayTimeTracker.daytime == false)
         {
-            Eagle.AddForce(transform.up * 40);
+            Eagle.transform.position = new Vector3(PlayerTransform.position.x, PlayerTransform.position.y + EagleY, 0);
         }
 	}
+
+    void Timer()
+    {
+        timer += Time.deltaTime;
+        if (timer >= 1)
+        {
+            rnd = Random.Range(0, 4);
+          if (rnd == 0)
+          {
+            Eagle.transform.position = new Vector3(EagleX, EagleY, 0);
+          }
+         
+       }
+    }
 }
