@@ -26,7 +26,7 @@ public class Camouflage: MonoBehaviour
         }
         if (DayTimeTracker.daytime == false)
         {
-            abilityScore.text = "Stealth stored for night: " + (abilitypower + 59) / 60;
+            abilityScore.text = "Stealth stored for day: " + (abilitypower + 59) / 60;
         }
         if (Input.GetKeyDown(change))
         {
@@ -80,5 +80,9 @@ public class Camouflage: MonoBehaviour
             collision.gameObject.SetActive(false);
             abilitypower += 60;
         }
+            if (collision.tag == "Bird" && this.tag == "Unstealthed")
+            {
+                Application.LoadLevel(Application.loadedLevel);
+            }
     }
 }

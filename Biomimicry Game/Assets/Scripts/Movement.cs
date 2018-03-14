@@ -37,11 +37,4 @@ public class Movement : MonoBehaviour
 
         currentSpeed = move * accelerationSpeed;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Bird")
-        {
-            Application.LoadLevel(Application.loadedLevel);
-        }
-    }
 }

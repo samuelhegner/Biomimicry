@@ -27,15 +27,12 @@ public class PredatorBird : MonoBehaviour
     Vector3 birdStartPos;
     Vector3 birdEndPos;
     Vector3 UpdatedPlayerPosition;
-    Vector3 ForwardPlayerPosition;
-    Vector3 RearPlayerPosition;
+
 
     void Start()
     {
         Eagle = GetComponent<Rigidbody2D>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
-        EagleX = PlayerTransform.position.x + 12;
-        EagleY = PlayerTransform.position.y + 10;
 
         activeBird = false;
         timer = 0;
@@ -65,12 +62,8 @@ public class PredatorBird : MonoBehaviour
             {
                 float distCovered = (Time.time - startTime) * 10f;
                 float fracJourney = distCovered / journeyLength;
-                this.transform.position = Vector3.Lerp(birdStartPos, ForwardPlayerPosition, fracJourney);
-                if (this.transform.position == ForwardPlayerPosition)
-                {
-                    Invoke("SetTime", 0);
-                    this.transform.position = Vector3.Lerp(ForwardPlayerPosition, UpdatedPlayerPosition, fracJourney);
-                }
+                this.transform.position = Vector3.Slerp(birdStartPos, UpdatedPlayerPosition, fracJourney);
+                
                 if (this.transform.position == UpdatedPlayerPosition)
                 {
                     reachedPlayer = true;
@@ -80,7 +73,7 @@ public class PredatorBird : MonoBehaviour
             else {
                 float distCovered = (Time.time - startTime) * 10f;
                 float fracJourney = distCovered / journeyLength;
-                this.transform.position = Vector3.Slerp(UpdatedPlayerPosition, birdEndPos, fracJourney);
+                this.transform.position = Vector3.Lerp(UpdatedPlayerPosition, birdEndPos, fracJourney);
 
                 if (this.transform.position == birdEndPos)
                 {
@@ -113,8 +106,6 @@ public class PredatorBird : MonoBehaviour
     void SetPlayerPosition()
     {
         UpdatedPlayerPosition = new Vector3(PlayerTransform.position.x, PlayerTransform.position.y + 2, 0);
-        ForwardPlayerPosition = new Vector3(PlayerTransform.position.x + 4, PlayerTransform.position.y, 0);
-        RearPlayerPosition = new Vector3(PlayerTransform.position.x - 2, PlayerTransform.position.y, 0);
         birdStartPos = new Vector3(UpdatedPlayerPosition.x + 10f, UpdatedPlayerPosition.y + 10f, 0);
         birdEndPos = new Vector3(UpdatedPlayerPosition.x - 10f, UpdatedPlayerPosition.y + 10f, 0);
         journeyLength = Vector3.Distance(birdStartPos, UpdatedPlayerPosition);
