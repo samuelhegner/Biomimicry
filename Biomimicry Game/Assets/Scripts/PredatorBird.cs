@@ -114,4 +114,12 @@ public class PredatorBird : MonoBehaviour
     void SetTime() {
         startTime = Time.time;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Unstealthed")
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+    }
 }

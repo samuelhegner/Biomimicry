@@ -80,9 +80,5 @@ public class Camouflage: MonoBehaviour
             collision.gameObject.SetActive(false);
             abilitypower += 60;
         }
-            if (collision.tag == "Bird" && this.tag == "Unstealthed")
-            {
-                Application.LoadLevel(Application.loadedLevel);
-            }
     }
 }
