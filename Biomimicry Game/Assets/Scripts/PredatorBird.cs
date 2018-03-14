@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class PredatorBird : MonoBehaviour {
 
+    Rigidbody2D Eagle;
     Transform PlayerTransform;
     Transform PlayerBody;
 
 	void Start () {
+        Eagle = GetComponent<Rigidbody2D>();
         PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
     }
 	
 
 	void Update () {
+        print(DayTimeTracker.daytime);
         if (DayTimeTracker.daytime == true)
         {
-            this.gameObject.SetActive(true);
-            print("1");
+            Eagle.transform.localScale;
         }
-        else if (DayTimeTracker.daytime == false)
+        if (DayTimeTracker.daytime == false)
         {
-            this.gameObject.SetActive(false);
-            print("0");
+            Eagle.AddForce(transform.up * 40);
         }
 	}
 }
