@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -35,5 +36,12 @@ public class Movement : MonoBehaviour
         transform.position += move1 * maxSpeed * Time.deltaTime;
 
         currentSpeed = move * accelerationSpeed;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bird")
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
     }
 }
