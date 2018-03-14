@@ -18,8 +18,8 @@ public class PredatorBird : MonoBehaviour {
         Eagle = GetComponent<Rigidbody2D>();
         PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
-        EagleX = PlayerTransform.position.x + 40;
-        EagleY = PlayerTransform.position.y + 50;
+        EagleX = PlayerTransform.position.x + 12;
+        EagleY = PlayerTransform.position.y + 10;
     }
 	
 
