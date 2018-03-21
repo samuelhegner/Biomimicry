@@ -1,12 +1,10 @@
 fileFormatVersion: 2
-guid: 2035a77d9456d7b458119bb8603d0f9f
-timeCreated: 1521657263
+guid: b3918ab1cbcb4bb48907aba0079af282
+timeCreated: 1521657850
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Eyes
-    21300002: Brow Right
-    21300004: Brow Left
+    21300000: EyesClosed
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -34,7 +32,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -113,41 +111,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eyes
+      name: EyesClosed
       rect:
         serializedVersion: 2
-        x: 457
-        y: 547
-        width: 383
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Brow Right
-      rect:
-        serializedVersion: 2
-        x: 676
-        y: 708
-        width: 128
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Brow Left
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 710
-        width: 124
-        height: 63
+        x: 509
+        y: 555
+        width: 361
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

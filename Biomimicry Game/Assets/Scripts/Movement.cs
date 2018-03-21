@@ -11,16 +11,32 @@ public class Movement : MonoBehaviour
     public float halfspeed;
     public float fullspeed;
     public GameObject body;
-    
+
+    Animator anim;
+
+
     void Start()
     {
         halfspeed = maxSpeed / 3;
         fullspeed = maxSpeed;
+        anim = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()
     {
+        float move = Input.GetAxis("Horizontal");
+
         
+        if (move > 0)
+        {
+            anim.SetBool("FacingRight", true);
+        }
+        else if (move < 0)
+        {
+            anim.SetBool("FacingRight", false);
+        }
+
+
         if (body.tag == "Stealthed")
         {
             maxSpeed = halfspeed;
@@ -29,12 +45,14 @@ public class Movement : MonoBehaviour
         {
             maxSpeed = fullspeed;
         }
-        float move = Input.GetAxis("Horizontal");
 
         var move1 = new Vector3(Input.GetAxis("Horizontal"), 0);
 
         transform.position += move1 * maxSpeed * Time.deltaTime;
 
         currentSpeed = move * accelerationSpeed;
+
+        anim.SetFloat("Speed", (currentSpeed + move));
+
     }
 }
