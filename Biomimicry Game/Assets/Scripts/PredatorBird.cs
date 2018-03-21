@@ -92,11 +92,11 @@ public class PredatorBird : MonoBehaviour
         if (timer >= 1)
         {
             rnd = Random.Range(0, 4);
-            if (rnd == 0)
-            {
-                activeBird = true;
-                Invoke("SetTime", 0);
-                Invoke("SetPlayerPosition", 0);
+            if (rnd == 0 && PlayerBody.tag == "Unstealthed")
+            {               
+                    activeBird = true;
+                    Invoke("SetTime", 0);
+                    Invoke("SetPlayerPosition", 0);
             }
 
             timer = 0;
