@@ -64,7 +64,7 @@ public class JumpingEnemy : MonoBehaviour {
                 jumptimer += Time.deltaTime;
                 if (jumptimer < 0.6 && jumptimer > 0)
                 {
-                    rb.AddForce(transform.up * jumpHeight);
+                    rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Force);
                 }
                 if (jumptimer > 0.6 && jumptimer < 1.3)
                 {
