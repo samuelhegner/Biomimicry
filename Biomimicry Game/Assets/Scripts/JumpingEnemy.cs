@@ -9,6 +9,7 @@ public class JumpingEnemy : MonoBehaviour {
 
     float jumptimer;
     float jumpHeight = 40;
+    int maxRange;
 
     Transform Queen;
     Transform PlayerTransform;
@@ -30,6 +31,7 @@ public class JumpingEnemy : MonoBehaviour {
     public BehaviourState currentstate;
 
 	void Start () {
+        maxRange = 6;
         Queen = GameObject.Find("Queen").GetComponent<Transform>();
         PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
@@ -41,6 +43,7 @@ public class JumpingEnemy : MonoBehaviour {
 
     void Update()
     {
+        print(maxRange);
         if (DayTimeTracker.daytime == false)
         {
             if (Queen.position.y > queenStart && currentstate != BehaviourState.encouraged)
@@ -59,7 +62,7 @@ public class JumpingEnemy : MonoBehaviour {
             if (currentstate == BehaviourState.jumping)
             {
                 jumptimer += Time.deltaTime;
-                if (jumptimer < 0.6)
+                if (jumptimer < 0.6 && jumptimer > 0)
                 {
                     rb.AddForce(transform.up * jumpHeight);
                 }
@@ -95,24 +98,28 @@ public class JumpingEnemy : MonoBehaviour {
         tick += Time.deltaTime;
         if (tick >= tickCount)
         {
-            rnd = Random.Range(0, 4);
+            rnd = Random.Range(0, maxRange);
             if (rnd == 0)
             {
                 if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > transform.position.x + 8 || PlayerTransform.position.x < transform.position.x - 8)
                 {
                     currentstate = BehaviourState.jumping;
-                    print("Jump");
+                    maxRange = 4;
                 }
                 else if (PlayerBody.tag == "Stealthed")
                 {
                     currentstate = BehaviourState.jumping;
-                    print("Jump");
+                    maxRange = 4;
                 }
                 else if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x < transform.position.x + 8 || PlayerTransform.position.x > transform.position.x - 8)
                 {
                     currentstate = BehaviourState.idle;
-                    print("Didn't");
+                    maxRange = 4;
                 }
+            }
+            else if (rnd != 0 && rnd >= 0)
+            {
+                maxRange--;
             }
             tick = 0; 
         }

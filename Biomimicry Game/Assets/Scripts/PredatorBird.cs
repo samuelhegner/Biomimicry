@@ -16,6 +16,8 @@ public class PredatorBird : MonoBehaviour
     float EagleX;
     float EagleY;
 
+    int maxRange;
+
     float timer;
     float rnd;
     float startTime;
@@ -31,6 +33,7 @@ public class PredatorBird : MonoBehaviour
 
     void Start()
     {
+        maxRange = 8;
         Eagle = GetComponent<Rigidbody2D>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
 
@@ -91,14 +94,18 @@ public class PredatorBird : MonoBehaviour
 
         if (timer >= 1)
         {
-            rnd = Random.Range(0, 4);
+            rnd = Random.Range(0, maxRange);
             if (rnd == 0 && PlayerBody.tag == "Unstealthed")
-            {               
-                    activeBird = true;
-                    Invoke("SetTime", 0);
-                    Invoke("SetPlayerPosition", 0);
+            {
+                activeBird = true;
+                Invoke("SetTime", 0);
+                Invoke("SetPlayerPosition", 0);
+                maxRange = 8;
             }
-
+            else if (rnd != 0 && PlayerBody.tag == "Unstealthed")
+            {
+                maxRange--;
+            }
             timer = 0;
         }
     }
