@@ -9,6 +9,8 @@ public class EndGameCollectible : MonoBehaviour {
     {
         if (collision.tag == "Untagged")
         {
+            collision.gameObject.GetComponent<Movement>().score++;
+            print(collision.gameObject.GetComponent<Movement>().score);
             this.gameObject.SetActive(false);
         }
     }

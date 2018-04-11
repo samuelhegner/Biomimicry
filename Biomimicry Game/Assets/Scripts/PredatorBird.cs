@@ -57,8 +57,6 @@ public class PredatorBird : MonoBehaviour
             Eagle.transform.position = new Vector3(PlayerTransform.position.x, 1000f, 0);
         }
 
-        print(reachedPlayer);
-
         if (activeBird == true)
         {
             if (reachedPlayer == false)

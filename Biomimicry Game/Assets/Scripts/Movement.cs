@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-    private int score = 0;
+    public int score = 0;
     public int scoreLimit = 4;
 
     public float maxSpeed;
@@ -17,21 +17,15 @@ public class Movement : MonoBehaviour
 
     Animator anim;
 
+    bool justCollected;
+
 
     void Start()
     {
         halfspeed = maxSpeed / 3;
         fullspeed = maxSpeed;
         anim = GetComponentInChildren<Animator>();
-    }
-
-    void Update()
-    {
-        print(score);
-        if (score >= scoreLimit)
-        {
-            print("Well Done Boy!");
-        }
+        justCollected = false;
     }
 
     void FixedUpdate()
@@ -68,11 +62,5 @@ public class Movement : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Objective")
-        {
-            score+=1;
-        }
-    }
+    
 }
