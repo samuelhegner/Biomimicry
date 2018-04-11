@@ -41,6 +41,15 @@ public class JumpingEnemy : MonoBehaviour {
         currentstate = BehaviourState.idle;
         startPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         anim = GetComponent<Animator>();
+
+        int ran = Random.Range(1, 3);
+
+        if (ran == 1)
+        {
+            Vector3 Scale = new Vector3(this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
+            Scale.x *= -1;
+            transform.localScale = Scale;
+        }
 	}
 
 
