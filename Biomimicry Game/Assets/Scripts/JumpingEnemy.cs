@@ -8,7 +8,7 @@ public class JumpingEnemy : MonoBehaviour {
     float rnd;
 
     float jumptimer;
-    float jumpHeight = 40;
+    float jumpHeight = 60;
     int maxRange;
 
     Transform Queen;
@@ -20,6 +20,8 @@ public class JumpingEnemy : MonoBehaviour {
     Rigidbody2D rb;
 
     Vector3 startPosition;
+
+    Animator anim;
 
     public enum BehaviourState
     {
@@ -38,12 +40,16 @@ public class JumpingEnemy : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         currentstate = BehaviourState.idle;
         startPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        anim = GetComponent<Animator>();
 	}
 
 
     void Update()
     {
-        print(maxRange);
+        float vSpeed = rb.velocity.y;
+
+        anim.SetFloat("vSpeed", vSpeed);
+
         if (DayTimeTracker.daytime == false)
         {
             if (Queen.position.y > queenStart && currentstate != BehaviourState.encouraged)
@@ -58,9 +64,12 @@ public class JumpingEnemy : MonoBehaviour {
                 this.tag = "Untagged";
                 tickCount = 1;
                 Invoke("Timer", 0);
+                anim.SetBool("Idle", true);
             }
             if (currentstate == BehaviourState.jumping)
             {
+                anim.SetBool("Idle", false);
+
                 jumptimer += Time.deltaTime;
                 if (jumptimer < 0.6 && jumptimer > 0)
                 {

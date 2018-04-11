@@ -11,12 +11,14 @@ public class Camouflage: MonoBehaviour
     public bool isInvisible;
     public bool inProgress = false;
     public GameObject player;
+    Animator anim;
 
     public Text abilityScore;
 
     private void Start()
     {
         color = GetComponent<Renderer>().material.color;
+        anim = GetComponentInParent<Animator>();
     }
     private void Update()
     {
@@ -77,6 +79,7 @@ public class Camouflage: MonoBehaviour
     {
         if (collision.tag == "NPC")
         {
+            anim.SetTrigger("Bite");
             collision.gameObject.SetActive(false);
             abilitypower += 60;
         }

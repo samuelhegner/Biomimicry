@@ -8,7 +8,7 @@ public class JumpingQueen: MonoBehaviour {
     float random;
 
     float queenJumpTimer;
-    float queenJumpHeight = 40;
+    float queenJumpHeight = 60;
 
     int queenJumpFrequency;
 	Rigidbody2D rigid;
@@ -16,6 +16,8 @@ public class JumpingQueen: MonoBehaviour {
 
     Transform PlayerTransform;
     Transform PlayerBody;
+
+    Animator anim;
 
     public enum QueenBehaviourState
     {
@@ -32,20 +34,27 @@ public class JumpingQueen: MonoBehaviour {
         rigid.GetComponent<Rigidbody2D>();
         activestate = QueenBehaviourState.idle;
         queenStartPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        anim = GetComponent<Animator>();
 	}
 
 
     void Update()
     {
+        float vSpeed = rigid.velocity.y;
+
+        anim.SetFloat("vSpeed", vSpeed);
+
         if (DayTimeTracker.daytime == false)
         {
             if (activestate == QueenBehaviourState.idle)
             {
                 queenJumpFrequency = 10;
                 Invoke("Timer", 0);
+                anim.SetBool("Idle", true);
             }
             if (activestate == QueenBehaviourState.jumping)
             {
+                anim.SetBool("Idle", false);
                 queenJumpTimer += Time.deltaTime;
                 if (queenJumpTimer < 0.5)
                 {

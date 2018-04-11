@@ -31,13 +31,12 @@ public class MouseAIMovement : MonoBehaviour {
         currentState = BehaviourState.moving;
         xMovement = 0.02f;
         Invoke("Timer", 0);
-        playerTransform = GameObject.Find("Character Body").GetComponent<Transform>();
+        playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
     }
 	
 	void Update () {
 
-        print(xMovement);
         if (xMovement < 0)
         {
             anim.SetBool("FacingRight", false);
