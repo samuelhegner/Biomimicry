@@ -8,7 +8,7 @@ public class JumpingEnemy : MonoBehaviour {
     float rnd;
 
     float jumptimer;
-    float jumpHeight = 60;
+    public float jumpHeight = 30;
     int maxRange;
 
     Transform Queen;
@@ -82,7 +82,7 @@ public class JumpingEnemy : MonoBehaviour {
                 jumptimer += Time.deltaTime;
                 if (jumptimer < 0.6 && jumptimer > 0)
                 {
-                    rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Force);
+                    rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
                 }
                 if (jumptimer > 0.6 && jumptimer < 1.3)
                 {

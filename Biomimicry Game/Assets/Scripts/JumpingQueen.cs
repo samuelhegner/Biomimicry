@@ -8,7 +8,7 @@ public class JumpingQueen: MonoBehaviour {
     float random;
 
     float queenJumpTimer;
-    float queenJumpHeight = 60;
+    public float queenJumpHeight = 40;
 
     int queenJumpFrequency;
 	Rigidbody2D rigid;
@@ -67,7 +67,7 @@ public class JumpingQueen: MonoBehaviour {
                 queenJumpTimer += Time.deltaTime;
                 if (queenJumpTimer < 0.5)
                 {
-                    rigid.AddForce(transform.up * queenJumpHeight);
+                    rigid.AddForce(transform.up * queenJumpHeight, ForceMode2D.Impulse);
                 }
                 if (this.transform.position.y <= queenStartPosition.y && queenJumpTimer > 0.5)
                 {

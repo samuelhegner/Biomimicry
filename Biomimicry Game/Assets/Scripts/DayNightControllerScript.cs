@@ -30,6 +30,8 @@ public class DayNightControllerScript : MonoBehaviour
 
     float startTime;
 
+    GameObject player;
+
 
 
     void Start()
@@ -49,10 +51,17 @@ public class DayNightControllerScript : MonoBehaviour
         endChangeTime = startChangeTime + changeDuration;
 
         duration = dayLength / 2;
+
+        player = GameObject.Find("Player");
     }
 
     void Update()
     {
+
+        Vector3 newLocation = new Vector3(player.transform.position.x, this.transform.position.y, this.transform.position.z);
+
+        this.transform.position = newLocation;
+
         float t = Mathf.PingPong(Time.time, duration) / duration;
         cam.backgroundColor = Color.Lerp(color1, color2, t);
 

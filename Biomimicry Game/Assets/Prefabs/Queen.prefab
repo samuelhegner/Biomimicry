@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 1233599384795560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.5750003, y: -1.995, z: 0}
-  m_LocalScale: {x: 0.21775393, y: 0.21775393, z: 0.21775393}
+  m_LocalScale: {x: 0.21774998, y: 0.21774998, z: 0.21774998}
   m_Children:
   - {fileID: 4420358637617056}
   m_Father: {fileID: 0}
@@ -327,7 +327,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 3.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc102d3fd2942d4b909848eafd1e9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  queenJumpHeight: 1
   activestate: 0
 --- !u!212 &212273025179348564
 SpriteRenderer:
