@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class MouseAIMovement : MonoBehaviour {
 
-    float speed = 0.02f;
+
     float xMovement;
     float displacement = 0.2f;
     float rnd = 0;
     float rnd2 = 0;
-    float xScale;
     float tick;
     float tick2;
     Transform playerTransform;
     float mousetimer1 = 0;
     float mousetimer2 = 0;
+    Animator anim;
 
 
-    bool right;
 
     public enum BehaviourState
     {
@@ -30,26 +29,23 @@ public class MouseAIMovement : MonoBehaviour {
 
     void Start () {
         currentState = BehaviourState.moving;
-        xMovement = speed;
-        xScale = this.transform.localScale.x;
+        xMovement = 0.02f;
         Invoke("Timer", 0);
-        right = false;
         playerTransform = GameObject.Find("Character Body").GetComponent<Transform>();
+        anim = GetComponent<Animator>();
     }
 	
 	void Update () {
 
-        Vector3 facingRight = new Vector3(-0.15f, this.transform.localScale.y, this.transform.localScale.z);
-        Vector3 facingLeft = new Vector3(0.15f, this.transform.localScale.y, this.transform.localScale.z);
+        print(xMovement);
+        if (xMovement < 0)
+        {
+            anim.SetBool("FacingRight", false);
+        }
+        else if (xMovement > 0) {
+            anim.SetBool("FacingRight", true);
+        }
 
-        if (right == true)
-        {
-            this.transform.localScale = facingRight;
-        }
-        else if (right == false)
-        {
-            this.transform.localScale = facingLeft;
-        }
         if (DayTimeTracker.daytime == false)
         {
             if (this.tag == "Startled")
@@ -59,19 +55,23 @@ public class MouseAIMovement : MonoBehaviour {
             if (currentState == BehaviourState.moving)
             {
                 Invoke("Timer", 0);
-                speed = 0.02f;
                 this.transform.position = transform.position + new Vector3(xMovement, 0, 0);
-                this.transform.localScale = new Vector3(-xScale, this.transform.localScale.y, this.transform.localScale.z);
+                anim.SetBool("Walking", true);
+                anim.SetBool("Running", false);
             }
             if (currentState == BehaviourState.startled)
             {
 
                 if (this.transform.position.x < playerTransform.position.x)
                 {
-                    right = false;
+
                     if (mousetimer1 <= 0.5)
                     {
-                        this.transform.position = transform.position + new Vector3(-displacement, 0, 0);
+                        xMovement = -0.2f;
+                        this.transform.position = transform.position + new Vector3(xMovement, 0, 0);
+                        anim.SetBool("Running", true);
+                        anim.SetBool("Walking", false);
+
                     }
                     if (mousetimer1 > 0.5)
                     {
@@ -82,11 +82,13 @@ public class MouseAIMovement : MonoBehaviour {
                 }
                 else if (this.transform.position.x > playerTransform.position.x)
                 {
-                    right = true;
-
                     if (mousetimer1 <= 0.5)
                     {
-                        this.transform.position = transform.position + new Vector3(displacement, 0, 0);
+                        xMovement = 0.2f;
+                        this.transform.position = transform.position + new Vector3(xMovement, 0, 0);
+                        anim.SetBool("Running", true);
+                        anim.SetBool("Walking", false);
+
                     }
                     if (mousetimer1 > 0.5)
                     {
@@ -100,8 +102,9 @@ public class MouseAIMovement : MonoBehaviour {
 
             if (currentState == BehaviourState.idle)
             {
-                Invoke("Idle", 0);
-                speed = 0;
+                Idle();
+                anim.SetBool("Walking", false);
+                anim.SetBool("Running", false);
             }
         }
         if(DayTimeTracker.daytime == true)
@@ -118,7 +121,6 @@ public class MouseAIMovement : MonoBehaviour {
             if (rnd >= 4)
             {
                 xMovement = -xMovement;
-                xScale = -xScale;
             }
             if (rnd == 2)
             {
@@ -129,6 +131,13 @@ public class MouseAIMovement : MonoBehaviour {
     }
     void Idle()
     {
+        if (xMovement > 0)
+        {
+            xMovement = 0.02f;
+        }
+        else if (xMovement < 0) {
+            xMovement = -0.02f;
+        }
         tick2 += Time.deltaTime;
         if(tick2 >= 1)
         {
