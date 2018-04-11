@@ -12,6 +12,7 @@ TagManager:
   - Queen
   - Mouse
   - Bird
+  - Objective
   layers:
   - Default
   - TransparentFX

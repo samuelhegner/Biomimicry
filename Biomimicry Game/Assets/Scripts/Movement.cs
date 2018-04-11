@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
+    private int score = 0;
+    public int scoreLimit = 4;
+
     public float maxSpeed;
     public float accelerationSpeed;
     public float currentSpeed;
@@ -20,6 +23,15 @@ public class Movement : MonoBehaviour
         halfspeed = maxSpeed / 3;
         fullspeed = maxSpeed;
         anim = GetComponentInChildren<Animator>();
+    }
+
+    void Update()
+    {
+        print(score);
+        if (score >= scoreLimit)
+        {
+            print("Well Done Boy!");
+        }
     }
 
     void FixedUpdate()
@@ -54,5 +66,13 @@ public class Movement : MonoBehaviour
 
         anim.SetFloat("Speed", (currentSpeed + move));
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Objective")
+        {
+            score+=1;
+        }
     }
 }
