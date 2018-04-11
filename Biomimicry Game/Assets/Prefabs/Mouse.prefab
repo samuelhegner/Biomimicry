@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4490313992293716}
   - component: {fileID: 212104798928030648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackLegDownFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4336020494393246}
   - component: {fileID: 212213571886980780}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackLegDownBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4893008658119710}
   - component: {fileID: 212891118363925284}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackLegUpBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4102920460306284}
   - component: {fileID: 212490495169781044}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ForeLegBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4659483348492764}
   - component: {fileID: 212246036248532970}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackLegUpFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4784627402596874}
   - component: {fileID: 212140565604718244}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488332495811318}
   - component: {fileID: 212007071829239774}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ForeLegFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488597660670788}
   - component: {fileID: 212416164519220308}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,9 +152,9 @@ GameObject:
   - component: {fileID: 114805299024806198}
   - component: {fileID: 95294097310537394}
   - component: {fileID: 61602045530456994}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mouse
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,7 +263,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1942199341330040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.75, y: 0, z: 0}
+  m_LocalPosition: {x: 4.32, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4488597660670788}
