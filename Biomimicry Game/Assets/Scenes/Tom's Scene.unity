@@ -584,13 +584,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 668159171}
-  m_LocalRotation: {x: -0, y: -0, z: -0.113605455, w: 0.993526}
+  m_LocalRotation: {x: -0, y: -0, z: -0.042956535, w: 0.99907696}
   m_LocalPosition: {x: -0.84, y: 0.52, z: 0}
   m_LocalScale: {x: 0.75189537, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1974109755}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.0460005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.9240003}
 --- !u!212 &668159173
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -756,14 +756,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 774401660}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.36, y: 0.22, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.45669046, w: 0.88962567}
+  m_LocalPosition: {x: -1.09, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2027383219}
   m_Father: {fileID: 1974109755}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 54.347004}
 --- !u!212 &774401662
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1331,7 +1331,7 @@ Animator:
   m_GameObject: {fileID: 1554061030}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 61dd8e5cc3204454e8a6043450a4aaae, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1480,7 +1480,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1974109754}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.32318392, w: 0.9463362}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1492,7 +1492,7 @@ Transform:
   - {fileID: 966719857}
   m_Father: {fileID: 1554061034}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -37.711002}
 --- !u!212 &1974109756
 SpriteRenderer:
   m_ObjectHideFlags: 0
