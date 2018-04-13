@@ -70,9 +70,7 @@ public class JumpingEnemy : MonoBehaviour {
             }
             if (currentstate == BehaviourState.idle)
             {
-                this.tag = "Untagged";
-                tickCount = 1;
-                Invoke("Timer", 0);
+                this.tag = "Untagged";               
                 anim.SetBool("Idle", true);
             }
             if (currentstate == BehaviourState.jumping)
@@ -95,14 +93,14 @@ public class JumpingEnemy : MonoBehaviour {
                 if (this.transform.position.y <= startPosition.y && jumptimer > 0.6)
                 {
                     jumptimer = 0;
-                    currentstate = BehaviourState.idle;
+                    currentstate = BehaviourState.encouraged;
                 }
             }
             if (currentstate == BehaviourState.encouraged)
             {
                 this.tag = "Untagged";
                 Invoke("Timer", 0);
-                tickCount = 0.03f;
+                tickCount = 1f;
             }
         }
         else if (DayTimeTracker.daytime == true)
@@ -117,27 +115,32 @@ public class JumpingEnemy : MonoBehaviour {
         if (tick >= tickCount)
         {
             rnd = Random.Range(0, maxRange);
+            print(rnd);
             if (rnd == 0)
             {
                 if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > transform.position.x + 8 || PlayerTransform.position.x < transform.position.x - 8)
                 {
                     currentstate = BehaviourState.jumping;
-                    maxRange = 4;
+                    maxRange = 6;
                 }
                 else if (PlayerBody.tag == "Stealthed")
                 {
                     currentstate = BehaviourState.jumping;
-                    maxRange = 4;
+                    maxRange = 6;
                 }
                 else if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x < transform.position.x + 8 || PlayerTransform.position.x > transform.position.x - 8)
                 {
-                    currentstate = BehaviourState.idle;
-                    maxRange = 4;
+                    currentstate = BehaviourState.encouraged;
+                    maxRange = 6;
                 }
             }
-            else if (rnd != 0 && rnd >= 0)
+            else if (rnd != 0 && rnd >= 0 && rnd < 5)
             {
                 maxRange--;
+            }
+            else if (rnd == 5)
+            {
+                currentstate = BehaviourState.idle;
             }
             tick = 0; 
         }

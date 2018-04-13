@@ -6,7 +6,8 @@ public class JumpingQueen: MonoBehaviour {
 
     float queenTick;
     float random;
-
+    int maxRange;
+    int total;
     float queenJumpTimer;
     public float queenJumpHeight = 40;
 
@@ -28,6 +29,8 @@ public class JumpingQueen: MonoBehaviour {
     public QueenBehaviourState activestate;
 
 	void Start () {
+        total = 7;
+        maxRange = total;
         rigid = GetComponent<Rigidbody2D>();
         PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
@@ -86,21 +89,29 @@ public class JumpingQueen: MonoBehaviour {
         queenTick += Time.deltaTime;
         if (queenTick >= 1)
         {
-            random = Random.Range(0, 10);
+            random = Random.Range(0, maxRange);
+            print(random);
             if (random == 0)
             {
                 if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > rigid.transform.position.x + 8 || PlayerTransform.position.x < rigid.transform.position.x - 8)
                 {
                     activestate = QueenBehaviourState.jumping;
+                    maxRange = total;
                 }
                 else if (PlayerBody.tag == "Stealthed")
                 {
                     activestate = QueenBehaviourState.jumping;
+                    maxRange = total;
                 }
                 else if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x < rigid.transform.position.x + 8 || PlayerTransform.position.x > rigid.transform.position.x - 8)
                 {
                     activestate = QueenBehaviourState.idle;
+                    maxRange = total;
                 }
+            }
+            if (random > 2)
+            {
+                maxRange--;
             }
             queenTick = 0; 
         }
