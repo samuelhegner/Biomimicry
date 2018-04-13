@@ -115,7 +115,6 @@ public class JumpingEnemy : MonoBehaviour {
         if (tick >= tickCount)
         {
             rnd = Random.Range(0, maxRange);
-            print(rnd);
             if (rnd == 0)
             {
                 if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > transform.position.x + 8 || PlayerTransform.position.x < transform.position.x - 8)
