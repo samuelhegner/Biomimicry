@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\samue\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_Biomimicry Game.839121477.00" t="ExcludeRecursive" />
-    <e p="D:\Unity Projects\BiomimicryGame\Biomimicry\Biomimicry Game" t="IncludeRecursive">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="DayNightController.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
             <e p="JetBrains" t="Include">
@@ -16,18 +14,25 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Camouflage.cs" t="Include" />
+          <e p="DayNightControllerScript.cs" t="Include" />
+          <e p="EndGameCollectible.cs" t="Include" />
+          <e p="Groundcheck.cs" t="Include" />
+          <e p="Jumping.cs" t="Include" />
+          <e p="JumpingEnemy.cs" t="Include" />
+          <e p="JumpingQueen.cs" t="Include" />
           <e p="MouseAIMovement.cs" t="Include" />
           <e p="Movement.cs" t="Include" />
+          <e p="PlantDetection.cs" t="Include" />
           <e p="PlayerDetection.cs" t="Include" />
+          <e p="PredatorBird.cs" t="Include" />
         </e>
       </e>
       <e p="Biomimicry Game.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Temp" t="ExcludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-      </e>
+      <e p="Temp/bin" t="ExcludeRecursive" />
     </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_Biomimicry Game.1441117913.00" t="ExcludeRecursive" />
   </component>
 </project>
