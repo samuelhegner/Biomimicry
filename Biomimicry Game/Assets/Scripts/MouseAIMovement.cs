@@ -16,7 +16,8 @@ public class MouseAIMovement : MonoBehaviour {
     float mousetimer2 = 0;
     Animator anim;
 
-
+    Vector3 spawn;
+    Vector3 currentpos;
 
     public enum BehaviourState
     {
@@ -28,8 +29,9 @@ public class MouseAIMovement : MonoBehaviour {
     public BehaviourState currentState;
 
     void Start () {
+        spawn = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         currentState = BehaviourState.moving;
-        xMovement = 0.02f;
+        xMovement = 0.04f;
         Invoke("Timer", 0);
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
@@ -66,7 +68,7 @@ public class MouseAIMovement : MonoBehaviour {
 
                     if (mousetimer1 <= 0.5)
                     {
-                        xMovement = -0.2f;
+                        xMovement = -0.8f;
                         this.transform.position = transform.position + new Vector3(xMovement, 0, 0);
                         anim.SetBool("Running", true);
                         anim.SetBool("Walking", false);
@@ -83,7 +85,7 @@ public class MouseAIMovement : MonoBehaviour {
                 {
                     if (mousetimer1 <= 0.5)
                     {
-                        xMovement = 0.2f;
+                        xMovement = 0.8f;
                         this.transform.position = transform.position + new Vector3(xMovement, 0, 0);
                         anim.SetBool("Running", true);
                         anim.SetBool("Walking", false);
@@ -108,11 +110,37 @@ public class MouseAIMovement : MonoBehaviour {
         }
         if(DayTimeTracker.daytime == true)
         {
-            this.gameObject.SetActive(false);
+            currentpos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+            if (currentpos.x > spawn.x + 1)
+            {
+                xMovement = -0.2f;
+                this.transform.position = transform.position + new Vector3(xMovement, 0, 0);
+                anim.SetBool("Running", true);
+                anim.SetBool("Walking", false);
+            }
+            else if (currentpos.x < spawn.x - 1)
+            {
+                xMovement = 0.2f;
+                this.transform.position = transform.position + new Vector3(xMovement, 0, 0);
+                anim.SetBool("Running", true);
+                anim.SetBool("Walking", false);
+            }
+            else if (currentpos.x <= spawn.x + 1 && currentpos.x >= spawn.x - 1)
+            {
+                Destroy(this.gameObject);
+            }
         }
 	}
     void Timer()
     {
+        if (xMovement > 0)
+        {
+            xMovement = 0.04f;
+        }
+        else if (xMovement < 0)
+        {
+            xMovement = -0.04f;
+        }
         tick += Time.deltaTime;
         if (tick >= 1)
         {
@@ -132,10 +160,10 @@ public class MouseAIMovement : MonoBehaviour {
     {
         if (xMovement > 0)
         {
-            xMovement = 0.02f;
+            xMovement = 0.04f;
         }
         else if (xMovement < 0) {
-            xMovement = -0.02f;
+            xMovement = -0.04f;
         }
         tick2 += Time.deltaTime;
         if(tick2 >= 1)

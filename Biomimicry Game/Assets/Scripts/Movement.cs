@@ -61,6 +61,4 @@ public class Movement : MonoBehaviour
         anim.SetFloat("Speed", (currentSpeed + move));
 
     }
-
-    
 }

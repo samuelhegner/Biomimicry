@@ -13,6 +13,7 @@ TagManager:
   - Mouse
   - Bird
   - Objective
+  - StealthHunter
   layers:
   - Default
   - TransparentFX

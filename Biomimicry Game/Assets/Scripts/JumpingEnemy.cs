@@ -35,6 +35,7 @@ public class JumpingEnemy : MonoBehaviour {
 	void Start () {
         maxRange = 6;
         Queen = GameObject.Find("Queen").GetComponent<Transform>();
+        queenStart = Queen.position.y;
         PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();

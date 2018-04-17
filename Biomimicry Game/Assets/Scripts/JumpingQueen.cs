@@ -93,21 +93,8 @@ public class JumpingQueen: MonoBehaviour {
             print(random);
             if (random == 0)
             {
-                if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > rigid.transform.position.x + 8 || PlayerTransform.position.x < rigid.transform.position.x - 8)
-                {
-                    activestate = QueenBehaviourState.jumping;
-                    maxRange = total;
-                }
-                else if (PlayerBody.tag == "Stealthed")
-                {
-                    activestate = QueenBehaviourState.jumping;
-                    maxRange = total;
-                }
-                else if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x < rigid.transform.position.x + 8 || PlayerTransform.position.x > rigid.transform.position.x - 8)
-                {
-                    activestate = QueenBehaviourState.idle;
-                    maxRange = total;
-                }
+                activestate = QueenBehaviourState.jumping;
+                maxRange = total;               
             }
             if (random > 2)
             {

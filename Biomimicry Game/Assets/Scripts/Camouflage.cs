@@ -81,7 +81,7 @@ public class Camouflage: MonoBehaviour
         {
             isInvisible = false;
             anim.SetTrigger("Bite");
-            collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject);
             abilitypower += 60;
         }
     }

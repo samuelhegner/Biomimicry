@@ -16,7 +16,7 @@ public class PlantDetection : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Unstealthed" && DayTimeTracker.daytime == true)
+        if (collision.tag == "Player" && DayTimeTracker.daytime == true)
         {
             Application.LoadLevel(Application.loadedLevel);
         }

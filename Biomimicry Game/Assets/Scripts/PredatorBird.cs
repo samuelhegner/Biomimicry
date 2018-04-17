@@ -50,11 +50,11 @@ public class PredatorBird : MonoBehaviour
         if (DayTimeTracker.daytime == true && activeBird == false)
         {
             Invoke("Timer", 0);
-            Eagle.transform.position = new Vector3(PlayerTransform.position.x, 1000f, 0);
+            Eagle.transform.position = new Vector3(PlayerTransform.position.x, PlayerTransform.position.y + 50f, 0);
         }
         else if (DayTimeTracker.daytime == false)
         {
-            Eagle.transform.position = new Vector3(PlayerTransform.position.x, 1000f, 0);
+            Eagle.transform.position = new Vector3(PlayerTransform.position.x, PlayerTransform.position.y + 50f, 0);
         }
 
         if (activeBird == true)
