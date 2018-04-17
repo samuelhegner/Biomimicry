@@ -8,7 +8,7 @@ public class JumpingEnemy : MonoBehaviour {
     float rnd;
 
     float jumptimer;
-    public float jumpHeight = 30;
+    float jumpHeight = 1.2f;
     int maxRange;
 
     Transform Queen;
@@ -16,7 +16,7 @@ public class JumpingEnemy : MonoBehaviour {
     Transform PlayerBody;
     float queenStart;
     
-    float tickCount = 1;
+    float tickCount = 0.03f;
     Rigidbody2D rb;
 
     Vector3 startPosition;
@@ -62,12 +62,9 @@ public class JumpingEnemy : MonoBehaviour {
 
         if (DayTimeTracker.daytime == false)
         {
-            if (Queen.position.y > queenStart && currentstate != BehaviourState.encouraged)
-            {
-                if (Queen.position.x < transform.position.x + 40 || Queen.position.x > transform.position.x - 40)
-                {
-                    currentstate = BehaviourState.encouraged;
-                }
+            if (Queen.position.y > queenStart + 1 && currentstate != BehaviourState.encouraged)
+            {            
+                    currentstate = BehaviourState.encouraged;             
             }
             if (currentstate == BehaviourState.idle)
             {
@@ -94,14 +91,14 @@ public class JumpingEnemy : MonoBehaviour {
                 if (this.transform.position.y <= startPosition.y && jumptimer > 0.6)
                 {
                     jumptimer = 0;
-                    currentstate = BehaviourState.encouraged;
+                    currentstate = BehaviourState.idle;
                 }
             }
             if (currentstate == BehaviourState.encouraged)
             {
                 this.tag = "Untagged";
                 Invoke("Timer", 0);
-                tickCount = 1f;
+                tickCount = 0.05f;
             }
         }
         else if (DayTimeTracker.daytime == true)
@@ -118,7 +115,7 @@ public class JumpingEnemy : MonoBehaviour {
             rnd = Random.Range(0, maxRange);
             if (rnd == 0)
             {
-                if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > transform.position.x + 8 || PlayerTransform.position.x < transform.position.x - 8)
+                if (PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x > transform.position.x + 8 || PlayerBody.tag == "Unstealthed" && PlayerTransform.position.x < transform.position.x - 8)
                 {
                     currentstate = BehaviourState.jumping;
                     maxRange = 6;
@@ -134,11 +131,11 @@ public class JumpingEnemy : MonoBehaviour {
                     maxRange = 6;
                 }
             }
-            else if (rnd != 0 && rnd >= 0 && rnd < 5)
+            else if (rnd > 0 && rnd < 4)
             {
                 maxRange--;
             }
-            else if (rnd == 5)
+            else if (rnd == 4 || rnd == 5)
             {
                 currentstate = BehaviourState.idle;
             }

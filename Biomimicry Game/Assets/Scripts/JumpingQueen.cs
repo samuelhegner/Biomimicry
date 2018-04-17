@@ -9,14 +9,10 @@ public class JumpingQueen: MonoBehaviour {
     int maxRange;
     int total;
     float queenJumpTimer;
-    public float queenJumpHeight = 40;
+    float queenJumpHeight = 1.6f;
 
-    int queenJumpFrequency;
 	Rigidbody2D rigid;
     Vector3 queenStartPosition;
-
-    Transform PlayerTransform;
-    Transform PlayerBody;
 
     Animator anim;
 
@@ -32,8 +28,6 @@ public class JumpingQueen: MonoBehaviour {
         total = 7;
         maxRange = total;
         rigid = GetComponent<Rigidbody2D>();
-        PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
-        PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
         rigid.GetComponent<Rigidbody2D>();
         activestate = QueenBehaviourState.idle;
         queenStartPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
@@ -60,7 +54,6 @@ public class JumpingQueen: MonoBehaviour {
         {
             if (activestate == QueenBehaviourState.idle)
             {
-                queenJumpFrequency = 10;
                 Invoke("Timer", 0);
                 anim.SetBool("Idle", true);
             }
@@ -72,10 +65,10 @@ public class JumpingQueen: MonoBehaviour {
                 {
                     rigid.AddForce(transform.up * queenJumpHeight, ForceMode2D.Impulse);
                 }
-                if (this.transform.position.y <= queenStartPosition.y && queenJumpTimer > 0.5)
+                if (this.transform.position.y <= queenStartPosition.y + 3 && queenJumpTimer > 0.5)
                 {
-                    queenJumpTimer = 0;
                     activestate = QueenBehaviourState.idle;
+                    queenJumpTimer = 0;
                 }
             }
         }
@@ -90,7 +83,6 @@ public class JumpingQueen: MonoBehaviour {
         if (queenTick >= 1)
         {
             random = Random.Range(0, maxRange);
-            print(random);
             if (random == 0)
             {
                 activestate = QueenBehaviourState.jumping;

@@ -6,14 +6,12 @@ public class MouseAIMovement : MonoBehaviour {
 
 
     float xMovement;
-    float displacement = 0.2f;
     float rnd = 0;
     float rnd2 = 0;
     float tick;
     float tick2;
     Transform playerTransform;
     float mousetimer1 = 0;
-    float mousetimer2 = 0;
     Animator anim;
 
     Vector3 spawn;

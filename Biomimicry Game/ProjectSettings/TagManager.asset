@@ -28,7 +28,7 @@ TagManager:
   - Mouse
   - Bird
   - Objective
-  - 
+  - Player Body
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Cricket
+    uniqueID: 123432245
     locked: 0

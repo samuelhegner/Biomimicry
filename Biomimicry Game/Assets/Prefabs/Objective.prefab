@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23138241049207418}
   - component: {fileID: 58806568392503810}
   - component: {fileID: 114564595416284602}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Objective
   m_TagString: Objective
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699623706423302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.41, y: -1.94, z: -0.1177214}
+  m_LocalPosition: {x: -3.0620701, y: -2.673426, z: -0.1177214}
   m_LocalScale: {x: 0.54765606, y: 0.54765606, z: 0.54765606}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,3 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a92b7b072c7e214c8d99522b2973d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}

@@ -8,15 +8,12 @@ public class PlayerTracker : MonoBehaviour {
     Transform PlayerTransform;
     Transform PlayerBody;
 
-    Rigidbody2D rb;
-
     float xMovement;
 
     void Start () {
         xMovement = 0.1f;
         PlayerTransform = GameObject.Find("Player").GetComponent<Transform>();
-        PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
-        rb = GetComponent<Rigidbody2D>();     
+        PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();    
     }
 	
 	
@@ -38,7 +35,7 @@ public class PlayerTracker : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            Application.LoadLevel(Application.loadedLevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         if (collision.tag == "Bird")
         {

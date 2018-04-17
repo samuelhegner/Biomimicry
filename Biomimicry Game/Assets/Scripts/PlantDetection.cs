@@ -5,20 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PlantDetection : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && DayTimeTracker.daytime == true)
         {
-            Application.LoadLevel(Application.loadedLevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         else
         {

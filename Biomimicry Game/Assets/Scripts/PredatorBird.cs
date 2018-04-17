@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PredatorBird : MonoBehaviour
 {
@@ -124,7 +125,7 @@ public class PredatorBird : MonoBehaviour
     {
         if (collision.tag == "Unstealthed")
         {
-            Application.LoadLevel(Application.loadedLevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-    public int score = 0;
-    public int scoreLimit = 4;
-
     public float maxSpeed;
     public float accelerationSpeed;
     public float currentSpeed;
@@ -17,15 +14,11 @@ public class Movement : MonoBehaviour
 
     Animator anim;
 
-    bool justCollected;
-
-
     void Start()
     {
         halfspeed = maxSpeed / 3;
         fullspeed = maxSpeed;
         anim = GetComponentInChildren<Animator>();
-        justCollected = false;
     }
 
     void FixedUpdate()
