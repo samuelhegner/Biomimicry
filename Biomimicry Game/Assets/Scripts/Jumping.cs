@@ -10,6 +10,7 @@ public class Jumping : MonoBehaviour
     Rigidbody2D rb;
     public float jumpHeight = 200;
     int objectiveCounter = 0;
+    int jumpCount;
 
     bool unlock1 = false;
 
@@ -22,8 +23,14 @@ public class Jumping : MonoBehaviour
 		canJump = groundcheck.GetComponent<Groundcheck> ().canJump;
         if (Input.GetKeyDown(jumpKey) && unlock1 == true && canJump == true)
         {
-            rb.AddForce(transform.up * jumpHeight);           
-       }
+            rb.AddForce(transform.up * jumpHeight);
+            jumpCount++;
+            if (Input.GetKeyDown(jumpKey) && jumpCount < 2)
+            {
+                rb.AddForce(transform.up * jumpHeight);
+                jumpCount++;
+            }
+        }
         if (objectiveCounter >= 1)
         {
             unlock1 = true;
