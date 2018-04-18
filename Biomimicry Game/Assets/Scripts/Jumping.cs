@@ -11,6 +11,7 @@ public class Jumping : MonoBehaviour
     public float jumpHeight = 200;
     int objectiveCounter = 0;
     int jumpCount;
+    int jumpMax;
 
     bool unlock1 = false;
 
@@ -18,6 +19,7 @@ public class Jumping : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         jumpCount = 0;
+        jumpMax = 1;
     }
     private void Update()
     {
@@ -29,7 +31,7 @@ public class Jumping : MonoBehaviour
 
         if (Input.GetKeyDown(jumpKey) && unlock1 == true)
         {
-            if (canJump == true || jumpCount < 2)
+            if (canJump == true || jumpCount < jumpMax)
             {
                 rb.AddForce(transform.up * jumpHeight);
                 jumpCount++;
@@ -38,6 +40,10 @@ public class Jumping : MonoBehaviour
         if (objectiveCounter >= 1)
         {
             unlock1 = true;
+        }
+        if (objectiveCounter >= 2)
+        {
+            jumpMax = 2;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
