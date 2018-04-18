@@ -37,6 +37,8 @@ public class MouseAIMovement : MonoBehaviour {
 	
 	void Update () {
 
+        currentpos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+
         if (xMovement < 0)
         {
             anim.SetBool("FacingRight", false);
@@ -60,10 +62,13 @@ public class MouseAIMovement : MonoBehaviour {
             }
             if (currentState == BehaviourState.startled)
             {
-
+               if (currentpos.x <= spawn.x + 1 && currentpos.x >= spawn.x - 1)
+                {
+                    Destroy(this.gameObject);
+                }
                 if (this.transform.position.x < playerTransform.position.x)
                 {
-
+                    
                     if (mousetimer1 <= 0.5)
                     {
                         xMovement = -0.8f;
@@ -107,8 +112,7 @@ public class MouseAIMovement : MonoBehaviour {
             }
         }
         if(DayTimeTracker.daytime == true)
-        {
-            currentpos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        {         
             if (currentpos.x > spawn.x + 1)
             {
                 xMovement = -0.2f;
