@@ -17,15 +17,19 @@ public class Jumping : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        jumpCount = 0;
     }
     private void Update()
     {
 		canJump = groundcheck.GetComponent<Groundcheck> ().canJump;
-        if (Input.GetKeyDown(jumpKey) && unlock1 == true && canJump == true)
+
+        if (canJump) {
+            jumpCount = 0;
+        }
+
+        if (Input.GetKeyDown(jumpKey) && unlock1 == true)
         {
-            rb.AddForce(transform.up * jumpHeight);
-            jumpCount++;
-            if (Input.GetKeyDown(jumpKey) && jumpCount < 2)
+            if (canJump == true || jumpCount < 2)
             {
                 rb.AddForce(transform.up * jumpHeight);
                 jumpCount++;
