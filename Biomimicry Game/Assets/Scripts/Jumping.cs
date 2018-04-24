@@ -12,6 +12,7 @@ public class Jumping : MonoBehaviour
     int objectiveCounter = 0;
     int jumpCount;
     int jumpMax;
+    float glideAmount = 3;
 
     bool unlock1 = false;
 
@@ -27,6 +28,7 @@ public class Jumping : MonoBehaviour
 
         if (canJump) {
             jumpCount = 0;
+            glideAmount = 3;
         }
 
         if (Input.GetKeyDown(jumpKey) && unlock1 == true)
@@ -45,12 +47,22 @@ public class Jumping : MonoBehaviour
         {
             jumpMax = 2;
         }
+        if (objectiveCounter == 3 && jumpCount == 2 && Input.GetKey(jumpKey))
+        {
+            rb.AddForce(transform.up * glideAmount);
+            glideAmount += 0.02f;
+        }
+        if (objectiveCounter >= 4)
+        {
+            objectiveCounter = 3;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Objective")
         {
             objectiveCounter++;
+            Destroy(collision.gameObject);
         }
     }
 }

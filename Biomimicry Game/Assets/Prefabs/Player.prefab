@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 212495825059168742}
   - component: {fileID: 114008148235390870}
   - component: {fileID: 61025061117733398}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Character Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220837649210220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -5.63, y: -2.3326757, z: 0.01171875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4627810737881364}
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38418bbdc4dec4840909de0469b6bf50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCam: {fileID: 0}
+  mainCam: {fileID: 1109225278491260}
   color1: {r: 0, g: 0, b: 0, a: 1}
   color2: {r: 0.8161765, g: 0.9530933, b: 1, a: 1}
   duskB: 0
