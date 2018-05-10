@@ -55,3 +55,6 @@ TagManager:
   - name: Cricket
     uniqueID: 123432245
     locked: 0
+  - name: Plant
+    uniqueID: 2744556899
+    locked: 0

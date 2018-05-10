@@ -20,7 +20,6 @@ public class PlayerTracker : MonoBehaviour {
 	
 	
 	void Update () {
-        print(color.a);
      
         if (PlayerBody.tag == "Stealthed" && PlayerTransform.position.x > transform.position.x -20 && PlayerTransform.position.x <= transform.position.x)
         {
