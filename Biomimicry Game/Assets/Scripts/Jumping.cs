@@ -25,7 +25,7 @@ public class Jumping : MonoBehaviour
     private void Update()
     {
 		canJump = groundcheck.GetComponent<Groundcheck> ().canJump;
-
+        print(glideAmount);
         if (canJump) {
             jumpCount = 0;
             glideAmount = 3;
@@ -50,7 +50,10 @@ public class Jumping : MonoBehaviour
         if (objectiveCounter == 3 && jumpCount == 2 && Input.GetKey(jumpKey))
         {
             rb.AddForce(transform.up * glideAmount);
-            glideAmount += 0.02f;
+            if (glideAmount < 40)
+            {
+                glideAmount += 0.32f;
+            }
         }
         if (objectiveCounter >= 4)
         {
