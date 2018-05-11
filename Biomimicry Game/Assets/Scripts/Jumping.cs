@@ -13,7 +13,7 @@ public class Jumping : MonoBehaviour
     int jumpCount;
     int jumpMax;
     float glideAmount = 3;
-
+ 
     bool unlock1 = false;
 
     void Start()
@@ -25,7 +25,7 @@ public class Jumping : MonoBehaviour
     private void Update()
     {
 		canJump = groundcheck.GetComponent<Groundcheck> ().canJump;
-        print(glideAmount);
+        print(jumpCount);
         if (canJump) {
             jumpCount = 0;
             glideAmount = 3;
@@ -33,9 +33,18 @@ public class Jumping : MonoBehaviour
 
         if (Input.GetKeyDown(jumpKey) && unlock1 == true)
         {
-            if (canJump == true || jumpCount < jumpMax)
+            if (canJump == true || jumpCount == 0)
             {
-                rb.AddForce(transform.up * jumpHeight/2);
+                rb.AddForce(transform.up * jumpHeight);
+                if (Input.GetKeyUp(jumpKey))
+                {
+                    jumpCount++;
+                }
+            }
+            if (canJump == true || jumpCount == 1)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.AddForce(transform.up * jumpHeight * 2);
                 jumpCount++;
             }
         }
@@ -64,7 +73,7 @@ public class Jumping : MonoBehaviour
             objectiveCounter = 3;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Objective")
         {

@@ -807,7 +807,7 @@ Prefab:
     - target: {fileID: 114464422989450474, guid: 58092978510b8f340a04d1875db6e348,
         type: 2}
       propertyPath: jumpHeight
-      value: 1100
+      value: 700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58092978510b8f340a04d1875db6e348, type: 2}
