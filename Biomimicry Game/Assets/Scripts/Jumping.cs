@@ -50,9 +50,13 @@ public class Jumping : MonoBehaviour
         if (objectiveCounter == 3 && jumpCount == 2 && Input.GetKey(jumpKey))
         {
             rb.AddForce(transform.up * glideAmount);
-            if (glideAmount < 40)
+            if (glideAmount < 20)
             {
-                glideAmount += 0.32f;
+                glideAmount += 0.406f;
+            }
+            if (glideAmount > 20 && glideAmount < 38)
+            {
+                glideAmount += 0.306f;
             }
         }
         if (objectiveCounter >= 4)
