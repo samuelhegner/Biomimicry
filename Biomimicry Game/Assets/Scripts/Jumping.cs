@@ -8,11 +8,14 @@ public class Jumping : MonoBehaviour
     public KeyCode jumpKey;
 	public GameObject groundcheck;
     Rigidbody2D rb;
-    public float jumpHeight = 200;
+    public float jumpForce = 200;
     int objectiveCounter = 0;
     int jumpCount;
     int jumpMax;
+    public float secondJumpDeducter;
     float glideAmount = 3;
+
+    float starterGravityScale;
  
     bool unlock1 = false;
 
@@ -21,33 +24,62 @@ public class Jumping : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         jumpCount = 0;
         jumpMax = 1;
+        starterGravityScale = rb.gravityScale;
     }
     private void Update()
     {
 		canJump = groundcheck.GetComponent<Groundcheck> ().canJump;
-        print(jumpCount);
         if (canJump) {
             jumpCount = 0;
             glideAmount = 3;
         }
 
-        if (Input.GetKeyDown(jumpKey) && unlock1 == true)
+        if (Input.GetKeyDown(jumpKey) && unlock1 == true && jumpCount < jumpMax)
         {
-            if (canJump == true || jumpCount == 0)
+            if (jumpCount == 0 && canJump)
             {
-                rb.AddForce(transform.up * jumpHeight);
-                if (Input.GetKeyUp(jumpKey))
-                {
-                    jumpCount++;
-                }
-            }
-            if (canJump == true || jumpCount == 1)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, 0);
-                rb.AddForce(transform.up * jumpHeight * 2);
+                rb.velocity = new Vector2(rb.velocity.x, 0f);
+                rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
                 jumpCount++;
+                print(jumpCount);
+
+            }else if (jumpCount == 1 && !canJump)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, 0f);
+                rb.AddForce(transform.up * (jumpForce - secondJumpDeducter), ForceMode2D.Impulse);
+                jumpCount++;
+                print(jumpCount);
+
             }
+            else if (jumpCount == 2 && !canJump)
+            {
+                if (Input.GetKey(jumpKey))
+                {
+                    rb.gravityScale = 0.0f;
+                    rb.velocity = new Vector2(rb.velocity.x, -5f);
+                }
+
+                /*rb.AddForce(transform.up * glideAmount);
+                if (glideAmount < 20)
+                {
+                    glideAmount += 0.406f;
+                }
+                if (glideAmount > 20 && glideAmount < 38)
+                {
+                    glideAmount += 0.306f;
+                }*/
+            }
+
         }
+
+        if (Input.GetKeyUp(jumpKey))
+        {
+            rb.gravityScale = starterGravityScale;
+        }
+
+
+
+
         if (objectiveCounter >= 1)
         {
             unlock1 = true;
@@ -56,18 +88,11 @@ public class Jumping : MonoBehaviour
         {
             jumpMax = 2;
         }
-        if (objectiveCounter == 3 && jumpCount == 2 && Input.GetKey(jumpKey))
-        {
-            rb.AddForce(transform.up * glideAmount);
-            if (glideAmount < 20)
-            {
-                glideAmount += 0.406f;
-            }
-            if (glideAmount > 20 && glideAmount < 38)
-            {
-                glideAmount += 0.306f;
-            }
+
+        if (objectiveCounter >= 3) {
+            jumpMax = 3;
         }
+
         if (objectiveCounter >= 4)
         {
             objectiveCounter = 3;
