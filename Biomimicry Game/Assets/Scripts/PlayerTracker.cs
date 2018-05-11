@@ -21,13 +21,13 @@ public class PlayerTracker : MonoBehaviour {
 	
 	void Update () {   
 
-        if (PlayerBody.tag == "Stealthed" && PlayerTransform.position.x > transform.position.x -20 && PlayerTransform.position.x <= transform.position.x)
+        if (PlayerBody.tag == "Stealthed" && PlayerTransform.position.x > transform.position.x -20 && PlayerTransform.position.x <= transform.position.x && PlayerTransform.position.y < transform.position.y + 30 && PlayerTransform.position.y >= transform.position.y - 30)
         {
             chasing = true;
             Body.SetActive(true);
             this.transform.position = transform.position + new Vector3(-xMovement, 0, 0);  
         }
-        else if (PlayerBody.tag == "Stealthed" && PlayerTransform.position.x >= transform.position.x && PlayerTransform.position.x < transform.position.x + 20)
+        else if (PlayerBody.tag == "Stealthed" && PlayerTransform.position.x >= transform.position.x && PlayerTransform.position.x < transform.position.x + 20 && PlayerTransform.position.y < transform.position.y + 30 && PlayerTransform.position.y >= transform.position.y - 30)
         {
             chasing = true;
             Body.SetActive(true);
