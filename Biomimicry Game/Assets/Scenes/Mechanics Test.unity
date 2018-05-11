@@ -253,13 +253,13 @@ Prefab:
     - target: {fileID: 212330414299695486, guid: 098e6a7c22d48dc4eb32e54aecb8a258,
         type: 2}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212330414299695486, guid: 098e6a7c22d48dc4eb32e54aecb8a258,
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ab9f93e8f6b52724aa41415e5aac2b4f,
+      objectReference: {fileID: 21300000, guid: 026be9be76dd2904ab7b1ec82b9f4ab4,
         type: 3}
     - target: {fileID: 95554052340110172, guid: 098e6a7c22d48dc4eb32e54aecb8a258,
         type: 2}
