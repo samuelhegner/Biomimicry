@@ -58,3 +58,6 @@ TagManager:
   - name: Plant
     uniqueID: 2744556899
     locked: 0
+  - name: Stealth Enemy
+    uniqueID: 3095013927
+    locked: 0
