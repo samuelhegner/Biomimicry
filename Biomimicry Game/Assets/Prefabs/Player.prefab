@@ -235,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220837649210220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -5.63, y: -2.3326757, z: 0.01171875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4627810737881364}
@@ -335,7 +335,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.33304498, g: 0.45340475, b: 0.58823526, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -383,7 +383,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2.2
+  m_GravityScale: 4.7
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -575,7 +575,7 @@ MonoBehaviour:
   canJump: 0
   jumpKey: 32
   groundcheck: {fileID: 1670929277862266}
-  jumpHeight: 890
+  jumpHeight: 700
 --- !u!114 &114471590142486186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -595,9 +595,9 @@ MonoBehaviour:
   down: 0
   dusk: {fileID: 21300000, guid: 058e1a71e04a36242a5a54e4a3c58296, type: 3}
   dawn: {fileID: 21300000, guid: 0e0edb02e68959f468ed8e6d50e06186, type: 3}
-  startChangeTime: 0
+  startChangeTime: 20
   changeDuration: 40
-  dayLength: 60
+  dayLength: 120
 --- !u!114 &114804745779867700
 MonoBehaviour:
   m_ObjectHideFlags: 1

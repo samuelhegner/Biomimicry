@@ -5,43 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class PlayerTracker : MonoBehaviour {
 
-    Color color;
     Transform PlayerTransform;
     Transform PlayerBody;
+    public GameObject Body;
+    bool chasing;
 
     float xMovement;
 
     void Start () {
-        color = GetComponent<SpriteRenderer>().material.color;
         xMovement = 0.1f;
         PlayerTransform = GameObject.Find("Player").GetComponent<Transform>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
     }
 	
 	
-	void Update () {
-     
+	void Update () {   
+
         if (PlayerBody.tag == "Stealthed" && PlayerTransform.position.x > transform.position.x -20 && PlayerTransform.position.x <= transform.position.x)
         {
-            GetComponent<Renderer>().material.SetColor("_Color", color);
-            this.transform.position = transform.position + new Vector3(-xMovement, 0, 0);
-            color.a = 0.8f;
+            chasing = true;
+            Body.SetActive(true);
+            this.transform.position = transform.position + new Vector3(-xMovement, 0, 0);  
         }
         else if (PlayerBody.tag == "Stealthed" && PlayerTransform.position.x >= transform.position.x && PlayerTransform.position.x < transform.position.x + 20)
         {
-            GetComponent<Renderer>().material.SetColor("_Color", color);
+            chasing = true;
+            Body.SetActive(true);
             this.transform.position = transform.position + new Vector3(+xMovement, 0, 0);
-            color.a = 0.8f;
         }
         else if (PlayerBody.tag == "Unstealthed")
         {
-            GetComponent<Renderer>().material.SetColor("_Color", color);
-            color.a = 0f;          
+            chasing = false;
+            Body.SetActive(false);
         }
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && color.a != 0f)
+        if (collision.tag == "Player" && chasing == true)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
