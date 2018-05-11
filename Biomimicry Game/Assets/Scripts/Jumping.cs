@@ -35,7 +35,7 @@ public class Jumping : MonoBehaviour
         {
             if (canJump == true || jumpCount < jumpMax)
             {
-                rb.AddForce(transform.up * jumpHeight);
+                rb.AddForce(transform.up * jumpHeight/2);
                 jumpCount++;
             }
         }
