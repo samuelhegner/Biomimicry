@@ -856,9 +856,9 @@ MonoBehaviour:
   down: 0
   dusk: {fileID: 21300000, guid: 058e1a71e04a36242a5a54e4a3c58296, type: 3}
   dawn: {fileID: 21300000, guid: 0e0edb02e68959f468ed8e6d50e06186, type: 3}
-  startChangeTime: 20
-  changeDuration: 40
-  dayLength: 120
+  startChangeTime: 5
+  changeDuration: 5
+  dayLength: 60
 --- !u!114 &114588878222877696
 MonoBehaviour:
   m_ObjectHideFlags: 1
