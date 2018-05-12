@@ -25,11 +25,16 @@ public class PredatorBird : MonoBehaviour
     float distCovered;
     float fracJourney;
     float journeyLength;
+    float speed;
 
 
     Vector3 birdStartPos;
     Vector3 birdEndPos;
     Vector3 UpdatedPlayerPosition;
+    Vector3 PlayerRight;
+    Vector3 PlayerLeft;
+
+    int tripCount;
 
 
     void Start()
@@ -40,12 +45,13 @@ public class PredatorBird : MonoBehaviour
 
         activeBird = false;
         timer = 0;
+        speed = 15f;
     }
 
 
     void Update()
     {
-
+        GetComponent<Animator>().SetInteger("TripCount", tripCount);
         PlayerTransform = GameObject.Find("Character Eyes").GetComponent<Transform>();
 
         if (DayTimeTracker.daytime == true && activeBird == false)
@@ -60,29 +66,32 @@ public class PredatorBird : MonoBehaviour
 
         if (activeBird == true)
         {
-            if (reachedPlayer == false)
+            if (tripCount == 0)
             {
-                float distCovered = (Time.time - startTime) * 10f;
-                float fracJourney = distCovered / journeyLength;
-                this.transform.position = Vector3.Slerp(birdStartPos, UpdatedPlayerPosition, fracJourney);
-                
-                if (this.transform.position == UpdatedPlayerPosition)
+                transform.position = Vector3.MoveTowards(transform.position, PlayerRight, speed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, PlayerRight) < 2f)
                 {
-                    reachedPlayer = true;
-                    Invoke("SetTime", 0);
+                    tripCount++;
                 }
             }
-            else {
-                float distCovered = (Time.time - startTime) * 10f;
-                float fracJourney = distCovered / journeyLength;
-                this.transform.position = Vector3.Lerp(UpdatedPlayerPosition, birdEndPos, fracJourney);
-
-                if (this.transform.position == birdEndPos)
+            else if (tripCount == 1)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, PlayerLeft, speed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, PlayerLeft) < 2f)
                 {
-                    reachedPlayer = false;
-                    activeBird = false;
-                    Invoke("SetTime", 0);
+                    tripCount++;
                 }
+            }
+            else if (tripCount == 2)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, birdEndPos, speed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, birdEndPos) < 2f)
+                {
+                    tripCount++;
+                }
+            }
+            else if (tripCount == 3) {
+                activeBird = false;
             }
         }
     }
@@ -111,10 +120,14 @@ public class PredatorBird : MonoBehaviour
 
     void SetPlayerPosition()
     {
+        tripCount = 0;
         UpdatedPlayerPosition = new Vector3(PlayerTransform.position.x, PlayerTransform.position.y + 2, 0);
-        birdStartPos = new Vector3(UpdatedPlayerPosition.x + 10f, UpdatedPlayerPosition.y + 10f, 0);
-        birdEndPos = new Vector3(UpdatedPlayerPosition.x - 10f, UpdatedPlayerPosition.y + 10f, 0);
-        journeyLength = Vector3.Distance(birdStartPos, UpdatedPlayerPosition);
+        birdStartPos = new Vector3(UpdatedPlayerPosition.x + 30f, UpdatedPlayerPosition.y + 20f, 0);
+        birdEndPos = new Vector3(UpdatedPlayerPosition.x - 50f, UpdatedPlayerPosition.y + 50f, 0);
+        PlayerRight = new Vector3(UpdatedPlayerPosition.x + 15f, UpdatedPlayerPosition.y + 1f, 0);
+        PlayerLeft = new Vector3(UpdatedPlayerPosition.x - 10f, UpdatedPlayerPosition.y, 0);
+
+        transform.position = birdStartPos;
     }
 
     void SetTime() {
