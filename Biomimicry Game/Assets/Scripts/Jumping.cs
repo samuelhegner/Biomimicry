@@ -28,6 +28,10 @@ public class Jumping : MonoBehaviour
     }
     private void Update()
     {
+        print(objectiveCounter);
+        GetComponent<Animator>().SetInteger("Upgrade", objectiveCounter);
+
+
 		canJump = groundcheck.GetComponent<Groundcheck> ().canJump;
         if (canJump) {
             jumpCount = 0;
