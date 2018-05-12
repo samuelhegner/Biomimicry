@@ -15,7 +15,11 @@ public class Jumping : MonoBehaviour
     public float secondJumpDeducter;
     float glideAmount = 3;
 
+    public GameObject leg1, leg2, wing;
+
     float starterGravityScale;
+
+    public GameObject smokePuff;
  
     bool unlock1 = false;
 
@@ -31,8 +35,7 @@ public class Jumping : MonoBehaviour
         GetComponent<Animator>().SetInteger("Upgrade", objectiveCounter);
         GetComponent<Animator>().SetBool("Grounded", canJump);
 
-
-		canJump = groundcheck.GetComponent<Groundcheck> ().canJump;
+        canJump = groundcheck.GetComponent<Groundcheck> ().canJump;
         if (canJump) {
             jumpCount = 0;
             glideAmount = 3;
@@ -52,6 +55,7 @@ public class Jumping : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
                 rb.AddForce(transform.up * (jumpForce - secondJumpDeducter), ForceMode2D.Impulse);
                 jumpCount++;
+                GetComponent<Animator>().SetTrigger("Jump");
             }
         }
 
@@ -61,12 +65,14 @@ public class Jumping : MonoBehaviour
             {
                 rb.gravityScale = 0.0f;
                 rb.velocity = new Vector2(rb.velocity.x, -4f);
+                GetComponent<Animator>().SetBool("Glide", true);
             }
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             rb.gravityScale = starterGravityScale;
+            GetComponent<Animator>().SetBool("Glide", false);
         }
 
 
@@ -75,10 +81,13 @@ public class Jumping : MonoBehaviour
         if (objectiveCounter >= 1)
         {
             unlock1 = true;
+            leg1.SetActive(true);
+            leg2.SetActive(true);
         }
         if (objectiveCounter >= 2)
         {
             jumpMax = 2;
+            wing.SetActive(true);
         }
 
         if (objectiveCounter >= 3) {
@@ -89,6 +98,9 @@ public class Jumping : MonoBehaviour
         {
             objectiveCounter = 3;
         }
+
+        GetComponent<Animator>().SetInteger("JumpCount", jumpCount);
+
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -96,6 +108,7 @@ public class Jumping : MonoBehaviour
         {
             objectiveCounter++;
             Destroy(collision.gameObject);
+            Instantiate(smokePuff, transform.position, transform.rotation);
         }
     }
 }
