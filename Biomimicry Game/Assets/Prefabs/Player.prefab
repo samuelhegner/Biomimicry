@@ -157,7 +157,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4002357965148408}
   - component: {fileID: 212054453648678118}
-  - component: {fileID: 114680939672502144}
   m_Layer: 0
   m_Name: Character Eyes
   m_TagString: Untagged
@@ -196,7 +195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1581283704421440
 GameObject:
   m_ObjectHideFlags: 1
@@ -212,7 +211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1670929277862266
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1696845028912864
 GameObject:
   m_ObjectHideFlags: 1
@@ -353,7 +352,7 @@ Transform:
   m_LocalScale: {x: 0.887534, y: 0.887534, z: 3.550136}
   m_Children: []
   m_Father: {fileID: 4540614601845168}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4275191318245580
 Transform:
@@ -394,8 +393,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4627810737881364}
-  - {fileID: 4783102945755328}
   - {fileID: 4139581101818220}
+  - {fileID: 4783102945755328}
   - {fileID: 4718878661140990}
   - {fileID: 4559260260222148}
   m_Father: {fileID: 0}
@@ -450,13 +449,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1508040219705862}
-  m_LocalRotation: {x: -0, y: -0, z: 0.24690959, w: 0.96903855}
-  m_LocalPosition: {x: -2.24, y: -0.248, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.4321639, w: 0.90179515}
+  m_LocalPosition: {x: -2.24, y: -0.02, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4627810737881364}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.589}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 51.210003}
 --- !u!4 &4718878661140990
 Transform:
   m_ObjectHideFlags: 1
@@ -495,7 +494,7 @@ Transform:
   m_Children:
   - {fileID: 224797580538443204}
   m_Father: {fileID: 4540614601845168}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4808105671037268
 Transform:
@@ -788,10 +787,6 @@ MonoBehaviour:
   groundcheck: {fileID: 1670929277862266}
   jumpForce: 25
   secondJumpDeducter: 0
-  leg1: {fileID: 1581283704421440}
-  leg2: {fileID: 1681906376955482}
-  wing: {fileID: 1508040219705862}
-  smokePuff: {fileID: 1453839425869720, guid: 098e6a7c22d48dc4eb32e54aecb8a258, type: 2}
 --- !u!114 &114471590142486186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -814,18 +809,6 @@ MonoBehaviour:
   startChangeTime: 20
   changeDuration: 40
   dayLength: 120
---- !u!114 &114680939672502144
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1426410849094344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba9b62606de07a4db1d7c63230f11e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Body: {fileID: 1091888574770328}
 --- !u!114 &114804745779867700
 MonoBehaviour:
   m_ObjectHideFlags: 1
