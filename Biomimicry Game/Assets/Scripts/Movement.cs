@@ -39,10 +39,12 @@ public class Movement : MonoBehaviour
         if (body.tag == "Stealthed")
         {
             maxSpeed = halfspeed;
+            GetComponent<Animator>().SetBool("Camo", true);
         }
         else if (body.tag != "Stealthed")
         {
             maxSpeed = fullspeed;
+            GetComponent<Animator>().SetBool("Camo", false);
         }
 
         var move1 = new Vector3(Input.GetAxis("Horizontal"), 0);

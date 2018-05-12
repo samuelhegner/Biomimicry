@@ -28,8 +28,8 @@ public class Jumping : MonoBehaviour
     }
     private void Update()
     {
-        print(objectiveCounter);
         GetComponent<Animator>().SetInteger("Upgrade", objectiveCounter);
+        GetComponent<Animator>().SetBool("Grounded", canJump);
 
 
 		canJump = groundcheck.GetComponent<Groundcheck> ().canJump;
@@ -45,15 +45,13 @@ public class Jumping : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
                 rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
                 jumpCount++;
-                print(jumpCount);
+                GetComponent<Animator>().SetTrigger("Jump");
 
             }else if (jumpCount == 1 && !canJump)
             {
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
                 rb.AddForce(transform.up * (jumpForce - secondJumpDeducter), ForceMode2D.Impulse);
                 jumpCount++;
-                print(jumpCount);
-
             }
         }
 
