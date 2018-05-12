@@ -77,6 +77,10 @@ public class Camouflage: MonoBehaviour
             isInvisible = false;
             abilitypower = 0;
         }
+        if (midAir > 0)
+        {
+            isInvisible = false;
+        }
     }
     void OnTriggerStay2D(Collider2D collision)
     {
