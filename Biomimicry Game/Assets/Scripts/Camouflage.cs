@@ -11,7 +11,9 @@ public class Camouflage: MonoBehaviour
     public bool isInvisible;
     public bool inProgress = false;
     public GameObject player;
+    public GameObject Main;
     Animator anim;
+    int midAir;
 
     public Text abilityScore;
 
@@ -22,6 +24,7 @@ public class Camouflage: MonoBehaviour
     }
     private void Update()
     {
+        midAir = Main.GetComponent<Jumping>().jumpCount;
         if (DayTimeTracker.daytime == true)
         {
             abilityScore.text = "Stealth Left: " + (abilitypower + 59) / 60;
@@ -30,7 +33,7 @@ public class Camouflage: MonoBehaviour
         {
             abilityScore.text = "Stealth stored for day: " + (abilitypower + 59) / 60;
         }
-        if (Input.GetKeyDown(change))
+        if (Input.GetKeyDown(change) && midAir < 1)
         {
             if (isInvisible == true && inProgress == false)
             {

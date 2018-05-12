@@ -10,7 +10,7 @@ public class Jumping : MonoBehaviour
     Rigidbody2D rb;
     public float jumpForce = 200;
     int objectiveCounter = 0;
-    int jumpCount;
+    public int jumpCount;
     int jumpMax;
     public float secondJumpDeducter;
     float glideAmount = 3;
