@@ -51,28 +51,18 @@ public class Jumping : MonoBehaviour
                 print(jumpCount);
 
             }
-            else if (jumpCount == 2 && !canJump)
-            {
-                if (Input.GetKey(jumpKey))
-                {
-                    rb.gravityScale = 0.0f;
-                    rb.velocity = new Vector2(rb.velocity.x, -5f);
-                }
-
-                /*rb.AddForce(transform.up * glideAmount);
-                if (glideAmount < 20)
-                {
-                    glideAmount += 0.406f;
-                }
-                if (glideAmount > 20 && glideAmount < 38)
-                {
-                    glideAmount += 0.306f;
-                }*/
-            }
-
         }
 
-        if (Input.GetKeyUp(jumpKey))
+        if (jumpCount == 2 && !canJump)
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                rb.gravityScale = 0.0f;
+                rb.velocity = new Vector2(rb.velocity.x, -4f);
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             rb.gravityScale = starterGravityScale;
         }
