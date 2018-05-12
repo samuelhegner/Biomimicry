@@ -18,12 +18,10 @@ public class Burrow : MonoBehaviour {
 	}
 	
 	void Update () {
-        print(rnd);
 		if(PlayerPresent == false && DayTimeTracker.daytime == false)
         {
             Invoke("Timer", 0);
         }
-        print(maxTotal);
 	}
 
     void Timer()
