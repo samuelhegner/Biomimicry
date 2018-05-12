@@ -18,16 +18,12 @@ public class Burrow : MonoBehaviour {
 	}
 	
 	void Update () {
-        
-        if (DayTimeTracker.daytime == false)
-        {
-            Invoke ("Reset", 0);
-        }
+        print(rnd);
 		if(PlayerPresent == false && DayTimeTracker.daytime == false)
         {
             Invoke("Timer", 0);
         }
-        print(mouseCounter);
+        print(maxTotal);
 	}
 
     void Timer()
@@ -42,12 +38,6 @@ public class Burrow : MonoBehaviour {
             }
             tick = 0;
         }  
-    }
-
-    void Reset()
-    {
-        maxTotal = mouseCounter;
-        mouseCounter = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
