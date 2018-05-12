@@ -18,6 +18,11 @@ public class PlantDetection : MonoBehaviour {
             Invoke("ReloadScene", 4);
             animator.GetComponent<Animator>().SetTrigger("Pressure");
         }
+        if (collision.tag == "StealthHunter")
+        {
+            animator.GetComponent<Animator>().SetTrigger("Pressure");
+            Destroy(collision.gameObject);
+        }
         else
         {
 
