@@ -61,3 +61,6 @@ TagManager:
   - name: Stealth Enemy
     uniqueID: 3095013927
     locked: 0
+  - name: Player
+    uniqueID: 1855891481
+    locked: 0
