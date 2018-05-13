@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class NewQueenJump : MonoBehaviour {
 
-    
+    public GameObject Body;
     Animator anim;
     Rigidbody2D rigid;
     float rnd;
     float Timer = 0;
     public float jumpHeight;
     int maxRange = 5;
+    bool PlayerNear;
 
     public enum QueenBehaviour
     {
@@ -21,7 +22,8 @@ public class NewQueenJump : MonoBehaviour {
 
     public QueenBehaviour currentQueenState;
 
-    void Start () {  
+    void Start () {
+        
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentQueenState = QueenBehaviour.idle;
@@ -37,6 +39,7 @@ public class NewQueenJump : MonoBehaviour {
     }
 	
 	void Update () {
+        PlayerNear = Body.GetComponent<Proximity>().Playernear;
         float vSpeed = rigid.velocity.y;
 
         anim.SetFloat("vSpeed", vSpeed);
@@ -53,7 +56,7 @@ public class NewQueenJump : MonoBehaviour {
         if (rnd == 3)
         {
             rnd = 0;
-            if (DayTimeTracker.daytime == false)
+            if (DayTimeTracker.daytime == false && PlayerNear == false)
             {
                 currentQueenState = QueenBehaviour.jumping;
             }

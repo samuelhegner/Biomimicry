@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Proximity : MonoBehaviour {
 
+    public bool Playernear;
     AudioSource cricketChirps;
     // Use this for initialization
     void Start () {
@@ -15,13 +16,15 @@ public class Proximity : MonoBehaviour {
         if (collision.tag == "Player")
         {
             cricketChirps.Play();
+            Playernear = true;
         }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            cricketChirps.Play();
+            cricketChirps.Pause();
+            Playernear = false;
         }
     }
 }

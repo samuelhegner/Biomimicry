@@ -42,10 +42,13 @@ public class Camouflage: MonoBehaviour
                 inProgress = true;
                 isInvisible = false;
             }
-            else if (isInvisible == false && inProgress == false && abilitypower > 0)
+            else if (isInvisible == false && inProgress == false)
             {
-                inProgress = true;
-                isInvisible = true;
+                if (DayTimeTracker.daytime == true && abilitypower > 0 || DayTimeTracker.daytime == false)
+                {
+                    inProgress = true;
+                    isInvisible = true;
+                }
             }
         }
         if (isInvisible == true)
@@ -74,7 +77,7 @@ public class Camouflage: MonoBehaviour
         {
             inProgress = false;
         }
-        if (abilitypower <= 0)
+        if (abilitypower <= 0 && DayTimeTracker.daytime == true)
         {
             isInvisible = false;
             abilitypower = 0;

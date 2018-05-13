@@ -21,7 +21,6 @@ public class EyesChange : MonoBehaviour {
         GetComponent<Renderer>().material.SetColor("_Color", color);
         if (Body.tag == "Stealthed")
         {
-            print("test");
             if (color.r > 0)
             {
                 color.r = ability / 600;

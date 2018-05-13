@@ -283,7 +283,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1233599384795560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.5750003, y: -1.995, z: 0}
+  m_LocalPosition: {x: 5.2838945, y: -1.4856482, z: 0}
   m_LocalScale: {x: 0.4861325, y: 0.48613295, z: 0.48613295}
   m_Children:
   - {fileID: 4420358637617056}
@@ -575,6 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4bacff1b3957446951805464a487cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Playernear: 0
 --- !u!114 &114832723135569612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -586,6 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214e1a2dbd3a2f1478df54c1aa9f7791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Body: {fileID: 1508279089182246}
   jumpHeight: 20
   currentQueenState: 0
 --- !u!212 &212273025179348564

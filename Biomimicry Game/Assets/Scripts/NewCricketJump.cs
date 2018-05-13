@@ -10,6 +10,7 @@ public class NewCricketJump : MonoBehaviour {
     public float queenStartY;
     public float jumpHeight;
     float Timer;
+    float Timer2;
 
     Rigidbody2D rb;
     Animator anim;
@@ -47,8 +48,6 @@ public class NewCricketJump : MonoBehaviour {
         float vSpeed = rb.velocity.y;
 
         anim.SetFloat("vSpeed", vSpeed);
-
-        print(rb.velocity.y);
         if (DayTimeTracker.daytime == false)
         {
             if (QueenTransform.position.y > queenStartY && currentBehaviour == CricketBehaviour.idle)
@@ -60,19 +59,7 @@ public class NewCricketJump : MonoBehaviour {
                 Timer += Time.deltaTime;
                 if (Timer > 0.5)
                 {
-                    Timer = 0;
-                    if (PlayerBody.tag == "Unstealthed" && Player.position.x > transform.position.x + 8 || PlayerBody.tag == "Unstealthed" && Player.position.x < transform.position.x - 8)
-                    {
-                        currentBehaviour = CricketBehaviour.jumping;
-                    }
-                    else if (PlayerBody.tag == "Stealthed")
-                    {
-                        currentBehaviour = CricketBehaviour.jumping;
-                    }
-                    else if (PlayerBody.tag == "Unstealthed" && Player.position.x < transform.position.x + 8 && Player.position.x > transform.position.x - 8)
-                    {
-                        currentBehaviour = CricketBehaviour.idle;
-                    }          
+                    currentBehaviour = CricketBehaviour.jumping;
                 }
             }
             if (currentBehaviour == CricketBehaviour.idle)
@@ -88,21 +75,23 @@ public class NewCricketJump : MonoBehaviour {
             }
             if (currentBehaviour == CricketBehaviour.falling)
             {
+                Timer2 += Time.deltaTime;
                 if (rb.velocity.y < -1 && rb.velocity.y >= -10)
                 {
                     this.tag = "NPC";
                 }
-                else if (rb.velocity.y >= -1 || rb.velocity.y <-10)
+                else if (rb.velocity.y >= -1 || rb.velocity.y <-13)
                 {
                     this.tag = "Untagged";
                 }
-                if (rb.velocity.y <-17)
+                if (Timer2 > 1.2)
                 {
                     currentBehaviour = CricketBehaviour.idle;
+                    Timer2 = 0;
                 }
             }
         }
-        if (DayTimeTracker.daytime == false)
+        if (DayTimeTracker.daytime == true)
         {
 
         }
