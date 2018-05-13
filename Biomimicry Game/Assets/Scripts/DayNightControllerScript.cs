@@ -46,6 +46,8 @@ public class DayNightControllerScript : MonoBehaviour
         player = GameObject.Find("Player");
         day = false;
         cam.backgroundColor = color1;
+
+        DayTimeTracker.ChangeNight();
     }
 
     void Update()

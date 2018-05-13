@@ -66,7 +66,7 @@ public class PredatorBird : MonoBehaviour
             Invoke("Timer", 0);
             Eagle.transform.position = new Vector3(PlayerTransform.position.x, PlayerTransform.position.y + 50f, 0);
         }
-        else if (DayTimeTracker.daytime == false)
+        else if (DayTimeTracker.daytime == false && activeBird == false)
         {
             Eagle.transform.position = new Vector3(PlayerTransform.position.x, PlayerTransform.position.y + 50f, 0);
         }

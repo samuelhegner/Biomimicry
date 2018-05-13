@@ -850,15 +850,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 1109225278491260}
   color1: {r: 0, g: 0, b: 0, a: 1}
-  color2: {r: 0.8161765, g: 0.9530933, b: 1, a: 1}
-  duskB: 0
-  dawnB: 0
+  color2: {r: 0.7352941, g: 0.97809327, b: 1, a: 1}
   down: 0
+  day: 0
   dusk: {fileID: 21300000, guid: 058e1a71e04a36242a5a54e4a3c58296, type: 3}
   dawn: {fileID: 21300000, guid: 0e0edb02e68959f468ed8e6d50e06186, type: 3}
-  startChangeTime: 5
-  changeDuration: 5
-  dayLength: 60
+  dayLength: 10
+  speed: 0.2
 --- !u!114 &114588878222877696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1389,7 +1387,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -100
-  m_Sprite: {fileID: 21300000, guid: 0e0edb02e68959f468ed8e6d50e06186, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1397,7 +1395,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212931994341997226
 SpriteRenderer:
