@@ -37,7 +37,6 @@ public class NewQueenJump : MonoBehaviour {
     }
 	
 	void Update () {
-        print(rnd);
         float vSpeed = rigid.velocity.y;
 
         anim.SetFloat("vSpeed", vSpeed);

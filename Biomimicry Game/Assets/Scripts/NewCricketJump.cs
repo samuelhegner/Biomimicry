@@ -48,7 +48,7 @@ public class NewCricketJump : MonoBehaviour {
 
         anim.SetFloat("vSpeed", vSpeed);
 
-        print(Player.position.x);
+        print(rb.velocity.y);
         if (DayTimeTracker.daytime == false)
         {
             if (QueenTransform.position.y > queenStartY && currentBehaviour == CricketBehaviour.idle)
@@ -88,15 +88,18 @@ public class NewCricketJump : MonoBehaviour {
             }
             if (currentBehaviour == CricketBehaviour.falling)
             {
-                if (rb.velocity.y > 0.1 || rb.velocity.y < -0.1)
+                if (rb.velocity.y < -1 && rb.velocity.y >= -10)
                 {
                     this.tag = "NPC";
                 }
-                else if (rb.velocity.y <= 0.1 || rb.velocity.y >=-0.1)
+                else if (rb.velocity.y >= -1 || rb.velocity.y <-10)
                 {
                     this.tag = "Untagged";
+                }
+                if (rb.velocity.y <-17)
+                {
                     currentBehaviour = CricketBehaviour.idle;
-                }              
+                }
             }
         }
         if (DayTimeTracker.daytime == false)
