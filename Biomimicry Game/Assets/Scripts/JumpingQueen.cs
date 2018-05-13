@@ -9,7 +9,7 @@ public class JumpingQueen: MonoBehaviour {
     int maxRange;
     int total;
     float queenJumpTimer;
-    float queenJumpHeight = 1.6f;
+    float queenJumpHeight = 12f;
 
 	Rigidbody2D rigid;
     Vector3 queenStartPosition;
@@ -61,11 +61,17 @@ public class JumpingQueen: MonoBehaviour {
             {
                 anim.SetBool("Idle", false);
                 queenJumpTimer += Time.deltaTime;
-                if (queenJumpTimer < 0.5)
+                if (queenJumpTimer < 0.05)
                 {
                     rigid.AddForce(transform.up * queenJumpHeight, ForceMode2D.Impulse);
                 }
-                if (this.transform.position.y <= queenStartPosition.y + 3 && queenJumpTimer > 0.5)
+                if (this.transform.position.y <= queenStartPosition.y + 1 && queenJumpTimer > 0.5)
+                {
+                    anim.SetBool("Idle", true);
+                    activestate = QueenBehaviourState.idle;
+                    queenJumpTimer = 0;
+                }
+                if (queenJumpTimer > 1.5)
                 {
                     activestate = QueenBehaviourState.idle;
                     queenJumpTimer = 0;
