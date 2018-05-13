@@ -31,8 +31,11 @@ public class PredatorBird : MonoBehaviour
     Vector3 birdStartPos;
     Vector3 birdEndPos;
     Vector3 UpdatedPlayerPosition;
-    Vector3 PlayerRight;
-    Vector3 PlayerLeft;
+    Vector3 PlayerFirst;
+    Vector3 PlayerSecond;
+
+    Vector3 rotateRight;
+    Vector3 rotateLeft;
 
     int tripCount;
 
@@ -46,6 +49,10 @@ public class PredatorBird : MonoBehaviour
         activeBird = false;
         timer = 0;
         speed = 15f;
+
+        rotateRight = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        rotateLeft = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+
     }
 
 
@@ -68,16 +75,16 @@ public class PredatorBird : MonoBehaviour
         {
             if (tripCount == 0)
             {
-                transform.position = Vector3.MoveTowards(transform.position, PlayerRight, speed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, PlayerRight) < 2f)
+                transform.position = Vector3.MoveTowards(transform.position, PlayerFirst, speed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, PlayerFirst) < 2f)
                 {
                     tripCount++;
                 }
             }
             else if (tripCount == 1)
             {
-                transform.position = Vector3.MoveTowards(transform.position, PlayerLeft, speed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, PlayerLeft) < 2f)
+                transform.position = Vector3.MoveTowards(transform.position, PlayerSecond, speed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, PlayerSecond) < 2f)
                 {
                     tripCount++;
                 }
@@ -120,12 +127,38 @@ public class PredatorBird : MonoBehaviour
 
     void SetPlayerPosition()
     {
+        bool right;
+        int _ran = Random.Range(1, 3);
+
+        if (_ran == 1)
+        {
+            right = true;
+        }
+        else {
+            right = false;
+        }
+
         tripCount = 0;
         UpdatedPlayerPosition = new Vector3(PlayerTransform.position.x, PlayerTransform.position.y + 2, 0);
-        birdStartPos = new Vector3(UpdatedPlayerPosition.x + 30f, UpdatedPlayerPosition.y + 20f, 0);
-        birdEndPos = new Vector3(UpdatedPlayerPosition.x - 50f, UpdatedPlayerPosition.y + 50f, 0);
-        PlayerRight = new Vector3(UpdatedPlayerPosition.x + 15f, UpdatedPlayerPosition.y + 1f, 0);
-        PlayerLeft = new Vector3(UpdatedPlayerPosition.x - 10f, UpdatedPlayerPosition.y, 0);
+
+        if (right)
+        {
+            transform.localScale = rotateRight;
+
+            birdStartPos = new Vector3(UpdatedPlayerPosition.x + 30f, UpdatedPlayerPosition.y + 20f, 0);
+            birdEndPos = new Vector3(UpdatedPlayerPosition.x - 50f, UpdatedPlayerPosition.y + 50f, 0);
+            PlayerFirst = new Vector3(UpdatedPlayerPosition.x + 15f, UpdatedPlayerPosition.y + 1f, 0);
+            PlayerSecond = new Vector3(UpdatedPlayerPosition.x - 10f, UpdatedPlayerPosition.y, 0);
+        }
+        else {
+            transform.localScale = rotateLeft;
+
+            birdStartPos = new Vector3(UpdatedPlayerPosition.x - 30f, UpdatedPlayerPosition.y + 20f, 0);
+            birdEndPos = new Vector3(UpdatedPlayerPosition.x + 50f, UpdatedPlayerPosition.y + 50f, 0);
+            PlayerSecond = new Vector3(UpdatedPlayerPosition.x + 10f, UpdatedPlayerPosition.y , 0);
+            PlayerFirst = new Vector3(UpdatedPlayerPosition.x - 15f, UpdatedPlayerPosition.y + 1f, 0);
+        }
+        
 
         transform.position = birdStartPos;
     }
