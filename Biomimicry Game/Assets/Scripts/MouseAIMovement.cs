@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseAIMovement : MonoBehaviour {
 
-
+    AudioSource audioSource;
     float xMovement;
     float rnd = 0;
     float rnd2 = 0;
@@ -13,6 +13,7 @@ public class MouseAIMovement : MonoBehaviour {
     Transform playerTransform;
     float mousetimer1 = 0;
     Animator anim;
+    public bool canPlay;
 
     Vector3 spawn;
     Vector3 currentpos;
@@ -27,6 +28,8 @@ public class MouseAIMovement : MonoBehaviour {
     public BehaviourState currentState;
 
     void Start () {
+        canPlay = true;
+        audioSource = GetComponent<AudioSource>();
         spawn = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         currentState = BehaviourState.moving;
         xMovement = 0.04f;
@@ -55,6 +58,7 @@ public class MouseAIMovement : MonoBehaviour {
             }
             if (currentState == BehaviourState.moving)
             {
+                canPlay = true;
                 Invoke("Timer", 0);
                 this.transform.position = transform.position + new Vector3(xMovement, 0, 0);
                 anim.SetBool("Walking", true);
@@ -62,6 +66,11 @@ public class MouseAIMovement : MonoBehaviour {
             }
             if (currentState == BehaviourState.startled)
             {
+                if (canPlay == true)
+                {
+                    audioSource.Play();
+                    canPlay = false;
+                }
                if (currentpos.x <= spawn.x + 1 && currentpos.x >= spawn.x - 1)
                 {
                     Destroy(this.gameObject);
@@ -109,6 +118,7 @@ public class MouseAIMovement : MonoBehaviour {
                 Idle();
                 anim.SetBool("Walking", false);
                 anim.SetBool("Running", false);
+                canPlay = true;
             }
         }
         if(DayTimeTracker.daytime == true)

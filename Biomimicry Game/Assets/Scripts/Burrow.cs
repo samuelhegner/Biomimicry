@@ -11,8 +11,10 @@ public class Burrow : MonoBehaviour {
     Vector3 spawn;
     int rnd;
     int newMouseCount;
+    AudioSource MiceSqueaking;
 
 	void Start () {
+        MiceSqueaking = GetComponent<AudioSource>();
         spawn = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         rnd = Random.Range(4, 8);       
 	}
@@ -47,12 +49,18 @@ public class Burrow : MonoBehaviour {
                 mouseCounter++;
             }          
         }
+        if (collision.tag == "Player")
+        {
+            MiceSqueaking.Play();
+        }   
     }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             PlayerPresent = true;
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -60,6 +68,7 @@ public class Burrow : MonoBehaviour {
         if (collision.tag == "Player")
         {
             PlayerPresent = false;
+            MiceSqueaking.Pause();
         }
     }
 }

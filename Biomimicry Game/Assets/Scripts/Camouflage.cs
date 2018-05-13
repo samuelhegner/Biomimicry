@@ -13,12 +13,14 @@ public class Camouflage: MonoBehaviour
     public GameObject player;
     public GameObject Main;
     Animator anim;
+    AudioSource BiteSFX;
     int midAir;
 
     public Text abilityScore;
 
-    private void Start()
+    void Start()
     {
+        BiteSFX = GetComponent<AudioSource>();
         color = GetComponent<Renderer>().material.color;
         anim = GetComponentInParent<Animator>();
     }
@@ -86,8 +88,9 @@ public class Camouflage: MonoBehaviour
     {
         if (collision.tag == "NPC")
         {
+            BiteSFX.Play();
             isInvisible = false;
-            anim.SetTrigger("Bite");
+            anim.SetTrigger("Bite");         
             Destroy(collision.gameObject);
             if (abilitypower < 480)
             {

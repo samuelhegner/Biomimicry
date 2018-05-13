@@ -10,6 +10,7 @@ public class PredatorBird : MonoBehaviour
     Transform PlayerTransform;
     Transform PlayerBody;
 
+    AudioSource audioSource;
 
     bool activeBird;
     bool reachedPlayer;
@@ -45,6 +46,8 @@ public class PredatorBird : MonoBehaviour
         maxRange = 8;
         Eagle = GetComponent<Rigidbody2D>();
         PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
+
+        audioSource = GetComponent<AudioSource>();
 
         activeBird = false;
         timer = 0;
@@ -161,6 +164,7 @@ public class PredatorBird : MonoBehaviour
         
 
         transform.position = birdStartPos;
+        audioSource.Play();
     }
 
     void SetTime() {

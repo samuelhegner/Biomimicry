@@ -14,6 +14,10 @@ public class Jumping : MonoBehaviour
     int jumpMax;
     public float secondJumpDeducter;
     float glideAmount = 3;
+    AudioSource audioSource;
+    public AudioClip glide;
+    public AudioClip jumpSound;
+    public bool audioReady;
 
     public GameObject leg1, leg2, wing;
 
@@ -25,10 +29,12 @@ public class Jumping : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         jumpCount = 0;
         jumpMax = 1;
         starterGravityScale = rb.gravityScale;
+        audioReady = true;
     }
     private void Update()
     {
@@ -45,6 +51,8 @@ public class Jumping : MonoBehaviour
         {
             if (jumpCount == 0 && canJump)
             {
+                audioSource.clip = jumpSound;
+                audioSource.Play();
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
                 rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
                 jumpCount++;
@@ -52,6 +60,8 @@ public class Jumping : MonoBehaviour
 
             }else if (jumpCount == 1 && !canJump)
             {
+                audioSource.clip = jumpSound;
+                audioSource.Play();
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
                 rb.AddForce(transform.up * (jumpForce - secondJumpDeducter), ForceMode2D.Impulse);
                 jumpCount++;
@@ -63,6 +73,12 @@ public class Jumping : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
+                audioSource.clip = glide;
+                if (audioReady == true)
+                {
+                    audioSource.Play();
+                    audioReady = false;
+                }
                 rb.gravityScale = 0.0f;
                 rb.velocity = new Vector2(rb.velocity.x, -4f);
                 GetComponent<Animator>().SetBool("Glide", true);
@@ -73,6 +89,8 @@ public class Jumping : MonoBehaviour
         {
             rb.gravityScale = starterGravityScale;
             GetComponent<Animator>().SetBool("Glide", false);
+            audioReady = true;
+            audioSource.Pause();
         }
 
 

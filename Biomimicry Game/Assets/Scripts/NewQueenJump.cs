@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class NewQueenJump : MonoBehaviour {
 
+    
     Animator anim;
     Rigidbody2D rigid;
-
     float rnd;
     float Timer = 0;
     public float jumpHeight;
@@ -21,7 +21,7 @@ public class NewQueenJump : MonoBehaviour {
 
     public QueenBehaviour currentQueenState;
 
-    void Start () {
+    void Start () {  
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentQueenState = QueenBehaviour.idle;
@@ -59,7 +59,6 @@ public class NewQueenJump : MonoBehaviour {
             }
         }
         
-
         if (currentQueenState == QueenBehaviour.idle)
         {
             anim.SetBool("Idle", true);
