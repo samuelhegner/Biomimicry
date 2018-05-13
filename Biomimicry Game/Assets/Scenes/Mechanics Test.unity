@@ -726,22 +726,47 @@ Prefab:
     - target: {fileID: 114471590142486186, guid: 58092978510b8f340a04d1875db6e348,
         type: 2}
       propertyPath: dayLength
-      value: 120
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114471590142486186, guid: 58092978510b8f340a04d1875db6e348,
         type: 2}
       propertyPath: color2.r
-      value: 1
+      value: 0.7352941
       objectReference: {fileID: 0}
     - target: {fileID: 114471590142486186, guid: 58092978510b8f340a04d1875db6e348,
         type: 2}
       propertyPath: color2.g
-      value: 1
+      value: 0.97809327
       objectReference: {fileID: 0}
     - target: {fileID: 114471590142486186, guid: 58092978510b8f340a04d1875db6e348,
         type: 2}
       propertyPath: color2.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471590142486186, guid: 58092978510b8f340a04d1875db6e348,
+        type: 2}
+      propertyPath: changeDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471590142486186, guid: 58092978510b8f340a04d1875db6e348,
+        type: 2}
+      propertyPath: startChangeTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212894496159761458, guid: 58092978510b8f340a04d1875db6e348,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212894496159761458, guid: 58092978510b8f340a04d1875db6e348,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 212894496159761458, guid: 58092978510b8f340a04d1875db6e348,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58092978510b8f340a04d1875db6e348, type: 2}

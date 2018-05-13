@@ -13,26 +13,23 @@ public class DayNightControllerScript : MonoBehaviour
     float duration = 3.0F;
 
     float timer;
-    public bool duskB, dawnB, down;
+    public bool down, day;
 
     Camera cam;
     SpriteRenderer rend;
 
     public Sprite dusk, dawn;
 
-    public float startChangeTime = 10f;
-    public float changeDuration = 40f;
+    float changeDuration;
 
     public float dayLength = 60f;
-    
-    float endChangeTime ;
-
 
     float startTime;
+    float spriteStartTime;
 
     GameObject player;
 
-
+    public float speed = 0.2f;
 
     void Start()
     {
@@ -43,120 +40,123 @@ public class DayNightControllerScript : MonoBehaviour
 
         timer = 0;
 
-        duskB = false;
-        dawnB = false;
 
-        down = false;
-
-        endChangeTime = startChangeTime + changeDuration;
-
-        duration = dayLength / 2;
+        changeDuration = dayLength / 4;
 
         player = GameObject.Find("Player");
+        day = false;
+        cam.backgroundColor = color1;
     }
 
     void Update()
     {
-
         Vector3 newLocation = new Vector3(player.transform.position.x, this.transform.position.y, this.transform.position.z);
 
         this.transform.position = newLocation;
 
-        float t = Mathf.PingPong(Time.time, duration) / duration;
-        cam.backgroundColor = Color.Lerp(color1, color2, t);
-
         timer += Time.deltaTime;
 
-        if (timer >= dayLength)
-        {
+        if (timer > dayLength) {
             timer = 0;
+            day = !day;
+            ChangeColor();
         }
-
-        if (timer > dayLength / 4 && timer < (dayLength / 4) * 3)
-        {
-            DayTimeTracker.ChangeDay();
-        }
-        else {
-            DayTimeTracker.ChangeNight();
-        }
-
-
-        if (timer > startChangeTime && timer < endChangeTime)
-        {
-            duskB = false;
-            if (dawnB == false) {
-                UpdateTime();
-                dawnB = true;
-            }
-
-            float progress = Time.time - startTime;
-            float newAlpha = 0;
-
-            if (down == false)
-            {
-                newAlpha = Mathf.Lerp(0f, 1f, progress / (changeDuration/2f));
-
-                if (progress > changeDuration/2)
-                {
-                    down = true;
-                    dawnB = false;
-                }
-            }
-            else if (down == true) {
-                newAlpha = Mathf.Lerp(1f, 0f, progress / (changeDuration / 2f));
-            }
-
-            spriteAlpha = new Color(1, 1, 1, newAlpha);
-
-            rend.color = spriteAlpha;
-            rend.sprite = dawn;
-        }
-
-        else if (timer > dayLength - endChangeTime && timer < dayLength - startChangeTime)
-        {
-            dawnB = false;
-            if (duskB == false)
-            {
-                UpdateTime();
-                duskB = true;
-            }
-
-            float progress = Time.time - startTime;
-            float newAlpha = 0;
-
-            if (down == false)
-            {
-                newAlpha = Mathf.Lerp(0f, 1f, progress / (changeDuration / 2f));
-
-                if (progress > changeDuration / 2)
-                {
-                    down = true;
-                    duskB = false;
-                }
-            }
-            else if (down == true)
-            {
-                newAlpha = Mathf.Lerp(1f, 0f, progress / (changeDuration / 2f));
-            }
-
-            spriteAlpha = new Color(1, 1, 1, newAlpha);
-
-            rend.color = spriteAlpha;
-            rend.sprite = dusk;
-        }
-
-        else
-        {
-            rend.sprite = null;
-            down = false;
-        }
-        
     }
 
     void UpdateTime() {
         startTime = Time.time;
     }
+    void UpdateSpriteTime() {
+        spriteStartTime = Time.time;
+    }
+
+    void ChangeColor() {
+        if (day == false) {
+            down = false;
+            UpdateTime();
+            UpdateSpriteTime();
+            StartCoroutine(ChangeToNight());
+            DayTimeTracker.ChangeNight();
+        }
+        else if(day == true) {
+            down = false;
+            UpdateTime();
+            UpdateSpriteTime();
+            StartCoroutine(ChangeToDay());
+            DayTimeTracker.ChangeDay();
+        }
+
+    }
+
+    IEnumerator ChangeToDay() {
+        while (cam.backgroundColor != color2) {
+            cam.backgroundColor = Color.Lerp(color1, color2, (Time.time - startTime) /changeDuration);
+
+            float newAlpha;
+
+            if (down == false)
+            {
+                newAlpha = Mathf.Lerp(0, 1, (Time.time - spriteStartTime) / (changeDuration / 2));
+                spriteAlpha = new Color(1, 1, 1, newAlpha);
+
+                if ((Time.time - spriteStartTime) > changeDuration / 2) {
+                    down = true;
+                    UpdateSpriteTime();
+                }
+            }
+            else if(down == true) {
+                newAlpha = Mathf.Lerp(1, 0, (Time.time - spriteStartTime) / (changeDuration / 2));
+                spriteAlpha = new Color(1, 1, 1, newAlpha);
+            }
+
+
+
+            rend.color = spriteAlpha;
+            rend.sprite = dawn;
+
+            yield return null;
+        }
+    }
+
+    IEnumerator ChangeToNight()
+    {
+        while (cam.backgroundColor != color1)
+        {
+            cam.backgroundColor = Color.Lerp(color2, color1, (Time.time - startTime) / changeDuration);
+
+            float newAlpha;
+
+            if (down == false)
+            {
+                newAlpha = Mathf.Lerp(0, 1, (Time.time - spriteStartTime) / (changeDuration / 2));
+                spriteAlpha = new Color(1, 1, 1, newAlpha);
+
+                if ((Time.time - spriteStartTime) > changeDuration / 2)
+                {
+                    down = true;
+                    UpdateSpriteTime();
+                }
+            }
+            else if (down == true)
+            {
+                newAlpha = Mathf.Lerp(1, 0, (Time.time - spriteStartTime) / (changeDuration / 2));
+                spriteAlpha = new Color(1, 1, 1, newAlpha);
+            }
+
+
+
+            rend.color = spriteAlpha;
+            rend.sprite = dusk;
+
+            yield return null;
+        }
+    }
 }
+
+
+
+
+
 public static class DayTimeTracker {
 
     public static bool daytime;
