@@ -59,7 +59,7 @@ public class Jumping : MonoBehaviour
             }
         }
 
-        if (jumpCount == 2 && !canJump)
+        if (jumpCount == 2 && !canJump && objectiveCounter >= 3)
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
