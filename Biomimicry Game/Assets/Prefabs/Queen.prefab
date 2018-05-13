@@ -85,8 +85,8 @@ GameObject:
   - component: {fileID: 4849789784125176}
   - component: {fileID: 61065603777049758}
   - component: {fileID: 50627745605979826}
-  - component: {fileID: 114478835358583938}
   - component: {fileID: 95468170735374620}
+  - component: {fileID: 114832723135569612}
   m_Layer: 8
   m_Name: Queen
   m_TagString: Queen
@@ -279,7 +279,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1233599384795560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.260701, y: -2.8125398, z: 0}
+  m_LocalPosition: {x: -6.5750003, y: -1.995, z: 0}
   m_LocalScale: {x: 0.4861325, y: 0.48613295, z: 0.48613295}
   m_Children:
   - {fileID: 4420358637617056}
@@ -375,7 +375,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114478835358583938
+--- !u!114 &114832723135569612
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -383,11 +383,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1233599384795560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fc102d3fd2942d4b909848eafd1e9a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 214e1a2dbd3a2f1478df54c1aa9f7791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  queenJumpHeight: 1.3
-  activestate: 0
+  jumpHeight: 20
+  currentQueenState: 0
 --- !u!212 &212273025179348564
 SpriteRenderer:
   m_ObjectHideFlags: 1
