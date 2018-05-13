@@ -112,7 +112,8 @@ public class MouseAIMovement : MonoBehaviour {
             }
         }
         if(DayTimeTracker.daytime == true)
-        {         
+        {
+            this.tag = "Untagged";
             if (currentpos.x > spawn.x + 1)
             {
                 xMovement = -0.2f;

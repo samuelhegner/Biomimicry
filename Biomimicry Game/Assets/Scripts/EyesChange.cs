@@ -24,8 +24,8 @@ public class EyesChange : MonoBehaviour {
             print("test");
             if (color.r > 0)
             {
-                color.r = ability / 1800;
-                print(ability / 1800);
+                color.r = ability / 600;
+                print(ability / 600);
             }
         }
 	}
