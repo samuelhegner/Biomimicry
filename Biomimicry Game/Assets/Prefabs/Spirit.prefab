@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4606411565966732}
   - component: {fileID: 95629273671463070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4191026936748440}
   - component: {fileID: 212719441064052248}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm Up Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4867765807960816}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stealth-chasing enemy (1)
   m_TagString: StealthHunter
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4293827712697106}
   - component: {fileID: 212487077110913404}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hand Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 114692930055479770}
   - component: {fileID: 61757666299881950}
   - component: {fileID: 61423843378024650}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spirit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4814148351138848}
   - component: {fileID: 212416427800642462}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4261250332701828}
   - component: {fileID: 212032151470852400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hand Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4128177783887792}
   - component: {fileID: 212413728308344338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm Down Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4174398964851170}
   - component: {fileID: 212425584559972204}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm Down Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4770768215649316}
   - component: {fileID: 212225920347290088}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm Up Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4522353795237314}
   - component: {fileID: 212199501773308984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1199953369
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: e95d82001866e4449b3d51b009ef3cdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -496,7 +496,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1199953369
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300008, guid: e95d82001866e4449b3d51b009ef3cdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -540,7 +540,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1199953369
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300006, guid: e95d82001866e4449b3d51b009ef3cdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -584,7 +584,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1199953369
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300004, guid: e95d82001866e4449b3d51b009ef3cdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -628,7 +628,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1199953369
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300010, guid: e95d82001866e4449b3d51b009ef3cdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -672,7 +672,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1199953369
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300004, guid: e95d82001866e4449b3d51b009ef3cdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -716,7 +716,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1199953369
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300002, guid: e95d82001866e4449b3d51b009ef3cdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -760,7 +760,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1199953369
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300006, guid: e95d82001866e4449b3d51b009ef3cdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
