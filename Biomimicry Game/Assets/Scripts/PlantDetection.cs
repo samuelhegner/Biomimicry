@@ -34,6 +34,12 @@ public class PlantDetection : MonoBehaviour {
     }
 
     void KillPlayer() {
-        Destroy(player.transform.GetChild(0).gameObject);
+        for (int i = 0; i < player.transform.childCount; i++) {
+            if (player.transform.GetChild(i).name != "Main Camera") {
+                player.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+        player.GetComponent<Jumping>().enabled = false;
+        player.GetComponent<Movement>().enabled = false;
     }
 }
