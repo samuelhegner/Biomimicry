@@ -63,6 +63,14 @@ public class MouseAIMovement : MonoBehaviour {
                 this.transform.position = transform.position + new Vector3(xMovement, 0, 0);
                 anim.SetBool("Walking", true);
                 anim.SetBool("Running", false);
+                if (currentpos.x < spawn.x + 2 && currentpos.x >= spawn.x)
+                {
+                    xMovement = +0.8f;
+                }
+                if (currentpos.x > spawn.x - 2 && currentpos.x < spawn.x)
+                {
+                    xMovement = -0.8f;
+                }
             }
             if (currentState == BehaviourState.startled)
             {
