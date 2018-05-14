@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Tom's Scene.unity
+    guid: 49e40870482b39a4d8716dafd4b48a9a
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 17765671c1c2f794aae986878a0d11c9
   - enabled: 1

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Jumping : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class Jumping : MonoBehaviour
     public int jumpCount;
     int jumpMax;
     public float secondJumpDeducter;
-    float glideAmount = 3;
     AudioSource audioSource;
     public AudioClip glide;
     public AudioClip jumpSound;
@@ -29,6 +29,7 @@ public class Jumping : MonoBehaviour
 
     void Start()
     {
+        objectiveCounter = SceneManager.GetActiveScene().buildIndex - 1;
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         jumpCount = 0;
@@ -44,7 +45,6 @@ public class Jumping : MonoBehaviour
         canJump = groundcheck.GetComponent<Groundcheck> ().canJump;
         if (canJump) {
             jumpCount = 0;
-            glideAmount = 3;
         }
 
         if (Input.GetKeyDown(jumpKey) && unlock1 == true && jumpCount < jumpMax)
