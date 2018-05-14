@@ -10,7 +10,7 @@ public class Jumping : MonoBehaviour
 	public GameObject groundcheck;
     Rigidbody2D rb;
     public float jumpForce = 200;
-    int objectiveCounter = 0;
+    public int objectiveCounter = 0;
     public int jumpCount;
     int jumpMax;
     public float secondJumpDeducter;
