@@ -399,7 +399,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220837649210220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.795408, y: 0.051603172, z: 0.01171875}
+  m_LocalPosition: {x: -32.2, y: 3.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4627810737881364}
@@ -473,7 +473,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1109225278491260}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32500076, y: 2.3, z: -1.22987}
+  m_LocalPosition: {x: 0.32500076, y: 4.35, z: -24.59}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 4540614601845168}
@@ -566,7 +566,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.398259
+  orthographic size: 9.320765
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -828,7 +828,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -992,7 +992,7 @@ MonoBehaviour:
   canJump: 0
   jumpKey: 32
   groundcheck: {fileID: 1670929277862266}
-  jumpForce: 25
+  jumpForce: 20
   jumpCount: 0
   secondJumpDeducter: 0
   glide: {fileID: 8300000, guid: 207cb39eb7b724448b15c4ce2147e666, type: 3}
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   day: 0
   dusk: {fileID: 21300000, guid: 058e1a71e04a36242a5a54e4a3c58296, type: 3}
   dawn: {fileID: 21300000, guid: 0e0edb02e68959f468ed8e6d50e06186, type: 3}
-  dayLength: 10
+  dayLength: 30
   speed: 0.2
 --- !u!114 &114588878222877696
 MonoBehaviour:
@@ -1551,7 +1551,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1000
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
