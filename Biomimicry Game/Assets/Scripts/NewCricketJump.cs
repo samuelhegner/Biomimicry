@@ -74,11 +74,11 @@ public class NewCricketJump : MonoBehaviour {
             if (currentBehaviour == CricketBehaviour.falling)
             {
                 Timer2 += Time.deltaTime;
-                if (rb.velocity.y < -1 && rb.velocity.y >= -10)
+                if (rb.velocity.y < -1 && rb.velocity.y >= -14)
                 {
                     this.tag = "NPC";
                 }
-                else if (rb.velocity.y >= -1 || rb.velocity.y <-13)
+                else if (rb.velocity.y >= -1 || rb.velocity.y <-14)
                 {
                     this.tag = "Untagged";
                 }
