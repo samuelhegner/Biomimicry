@@ -33,7 +33,8 @@ public class DayNightControllerScript : MonoBehaviour
 
     void Start()
     {
-        cam = mainCam.GetComponent<Camera>();
+        cam = Camera.main;
+
         cam.clearFlags = CameraClearFlags.SolidColor;
 
         rend = GetComponent<SpriteRenderer>();
@@ -52,9 +53,13 @@ public class DayNightControllerScript : MonoBehaviour
 
     void Update()
     {
-        Vector3 newLocation = new Vector3(player.transform.position.x, this.transform.position.y, this.transform.position.z);
+        if (player != null)
+        {
+            Vector3 newLocation = new Vector3(player.transform.position.x, this.transform.position.y, this.transform.position.z);
+            this.transform.position = newLocation;
 
-        this.transform.position = newLocation;
+        }
+
 
         timer += Time.deltaTime;
 
