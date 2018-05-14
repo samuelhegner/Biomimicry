@@ -23,6 +23,8 @@ public class Burrow : MonoBehaviour {
         {
             Invoke("Timer", 0);
         }
+        print("MaxTotal " + maxTotal);
+        print("rnd " + rnd);
 	}
 
     void Timer()
@@ -41,7 +43,7 @@ public class Burrow : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (DayTimeTracker.daytime == true && collision.tag == "Mouse")
+        if (DayTimeTracker.daytime == true)
         {
             maxTotal = 0;
         }
