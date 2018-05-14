@@ -23,7 +23,7 @@ public class Camouflage: MonoBehaviour
 
     void Start()
     {
-        Portal = GameObject.Find("EndLevel_SceneChanger");
+        Portal = GameObject.Find("Portal");
         enemiesEaten = 0;
         BiteSFX = GetComponent<AudioSource>();
         color = GetComponent<Renderer>().material.color;
