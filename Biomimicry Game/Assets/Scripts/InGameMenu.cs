@@ -40,7 +40,8 @@ public class InGameMenu : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Escape) && Control == true)
         {
-            Control = !Control;
+            Control = false;
+            Pause = true;
         }
 
 
@@ -85,8 +86,8 @@ public class InGameMenu : MonoBehaviour {
     }
     public void Return()
     {
-        Pause = !Pause;
-        Control = !Control;
+        Pause = false;
+        Control = false;
         Time.timeScale = 1f;
     }
 
