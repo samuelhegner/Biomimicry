@@ -5743,12 +5743,6 @@ Prefab:
       propertyPath: m_Name
       value: Plant (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 114948676918378560, guid: 4ff9f8af52a7f5444b5dbe6d8e331810,
-        type: 2}
-      propertyPath: bloodSplat
-      value: 
-      objectReference: {fileID: 1965214185914250, guid: 2ad22d993777a7d47979099e2e211ea1,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ff9f8af52a7f5444b5dbe6d8e331810, type: 2}
   m_IsPrefabParent: 0
