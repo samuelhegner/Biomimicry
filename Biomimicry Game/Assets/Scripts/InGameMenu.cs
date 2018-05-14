@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InGameMenu : MonoBehaviour {
 
@@ -27,4 +28,19 @@ public class InGameMenu : MonoBehaviour {
             Pause = !Pause;
         }
 	}
+    public void Return()
+    {
+        Pause = !Pause;
+        Time.timeScale = 1f;
+    }
+
+    public void Controls()
+    {
+        pauseMenu.SetActive(false);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

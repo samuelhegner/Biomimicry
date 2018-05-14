@@ -8,7 +8,7 @@ public class SceneChange : MonoBehaviour {
     AudioSource audioSource;
     int levelNumber;
     int score;
-    int activateScore;
+    public int activateScore;
     public GameObject PlayerBody;
     bool canPlay;
     public AudioClip portal;
