@@ -524,6 +524,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58092978510b8f340a04d1875db6e348, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &76077377 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1091888574770328, guid: 58092978510b8f340a04d1875db6e348,
+    type: 2}
+  m_PrefabInternal: {fileID: 76077376}
 --- !u!1001 &104300597
 Prefab:
   m_ObjectHideFlags: 0
@@ -9575,15 +9580,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 82049528583364308, guid: 5884602d55b67d041ac87ba5af83f593,
+    - target: {fileID: 114841565729938822, guid: 5884602d55b67d041ac87ba5af83f593,
         type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1592852223833984, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
-      propertyPath: m_Name
-      value: Portal
-      objectReference: {fileID: 0}
+      propertyPath: PlayerBody
+      value: 
+      objectReference: {fileID: 76077377}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
   m_IsPrefabParent: 0

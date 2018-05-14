@@ -1226,11 +1226,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4540614601845168, guid: 58092978510b8f340a04d1875db6e348, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58092978510b8f340a04d1875db6e348, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &158603609 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1091888574770328, guid: 58092978510b8f340a04d1875db6e348,
+    type: 2}
+  m_PrefabInternal: {fileID: 158603608}
 --- !u!1 &177052652
 GameObject:
   m_ObjectHideFlags: 0
@@ -10175,10 +10180,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1592852223833984, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
-      propertyPath: m_Name
-      value: Portal
-      objectReference: {fileID: 0}
+    - target: {fileID: 114841565729938822, guid: 5884602d55b67d041ac87ba5af83f593,
+        type: 2}
+      propertyPath: PlayerBody
+      value: 
+      objectReference: {fileID: 158603609}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
   m_IsPrefabParent: 0
