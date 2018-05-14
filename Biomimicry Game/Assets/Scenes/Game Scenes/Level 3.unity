@@ -4017,7 +4017,7 @@ GameObject:
   - component: {fileID: 758244362}
   m_Layer: 0
   m_Name: Long Pillar
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4341,7 +4341,7 @@ GameObject:
   - component: {fileID: 806822566}
   m_Layer: 0
   m_Name: Long Pillar (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

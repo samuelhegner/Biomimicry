@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 20919215}
   m_Layer: 0
   m_Name: Long Pillar (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11988,7 +11988,7 @@ GameObject:
   - component: {fileID: 572308173}
   m_Layer: 0
   m_Name: Long Pillar (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31772,7 +31772,7 @@ GameObject:
   - component: {fileID: 1572542066}
   m_Layer: 0
   m_Name: Long Pillar (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
