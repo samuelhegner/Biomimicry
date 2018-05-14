@@ -5,6 +5,7 @@ using UnityEngine;
 public class NewQueenJump : MonoBehaviour {
 
     public GameObject Body;
+    public Transform PlayerBody;
     Animator anim;
     Rigidbody2D rigid;
     float rnd;
@@ -23,7 +24,7 @@ public class NewQueenJump : MonoBehaviour {
     public QueenBehaviour currentQueenState;
 
     void Start () {
-        
+        PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentQueenState = QueenBehaviour.idle;
@@ -56,9 +57,20 @@ public class NewQueenJump : MonoBehaviour {
         if (rnd == 3)
         {
             rnd = 0;
-            if (DayTimeTracker.daytime == false && PlayerNear == false)
+            if (DayTimeTracker.daytime == false)
             {
-                currentQueenState = QueenBehaviour.jumping;
+                if (PlayerNear == false)
+                {
+                    currentQueenState = QueenBehaviour.jumping;
+                }
+                else if (PlayerNear = true && PlayerBody.tag == "Stealthed")
+                {
+                    currentQueenState = QueenBehaviour.jumping;
+                }
+                else if (PlayerNear = true && PlayerBody.tag == "Unstealthed")
+                {
+                    currentQueenState = QueenBehaviour.idle;
+                }
             }
         }
         

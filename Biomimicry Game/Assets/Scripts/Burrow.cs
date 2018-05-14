@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Burrow : MonoBehaviour {
-    int mouseCounter;
+
     int maxTotal;
     float tick;
     public bool PlayerPresent;
     public Transform mouse;
     Vector3 spawn;
     int rnd;
-    int newMouseCount;
     AudioSource MiceSqueaking;
 
 	void Start () {
@@ -44,10 +43,7 @@ public class Burrow : MonoBehaviour {
     {
         if (DayTimeTracker.daytime == true && collision.tag == "Mouse")
         {
-            if (mouseCounter < rnd)
-            {
-                mouseCounter++;
-            }          
+            maxTotal = 0;
         }
         if (collision.tag == "Player")
         {

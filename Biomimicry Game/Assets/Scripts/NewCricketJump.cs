@@ -27,8 +27,6 @@ public class NewCricketJump : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
-        Player = GameObject.Find("Player").GetComponent<Transform>();
-        PlayerBody = GameObject.Find("Character Body").GetComponent<Transform>();
         currentBehaviour = CricketBehaviour.idle;
         queenStartY = QueenTransform.position.y;
         anim = GetComponent<Animator>();
@@ -50,7 +48,7 @@ public class NewCricketJump : MonoBehaviour {
         anim.SetFloat("vSpeed", vSpeed);
         if (DayTimeTracker.daytime == false)
         {
-            if (QueenTransform.position.y > queenStartY && currentBehaviour == CricketBehaviour.idle)
+            if (QueenTransform.position.y > queenStartY + 2 && currentBehaviour == CricketBehaviour.idle)
             {
                 currentBehaviour = CricketBehaviour.encouraged;
             }
@@ -84,7 +82,7 @@ public class NewCricketJump : MonoBehaviour {
                 {
                     this.tag = "Untagged";
                 }
-                if (Timer2 > 1.2)
+                if (Timer2 > 1.3)
                 {
                     currentBehaviour = CricketBehaviour.idle;
                     Timer2 = 0;

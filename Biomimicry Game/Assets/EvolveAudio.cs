@@ -19,7 +19,7 @@ public class EvolveAudio : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (canPlay == true)
+        if (canPlay == true && collision.tag == "Player")
         {
             StartCoroutine(PlayAudio());
         }

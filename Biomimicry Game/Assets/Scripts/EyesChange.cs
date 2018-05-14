@@ -24,7 +24,6 @@ public class EyesChange : MonoBehaviour {
             if (color.r > 0)
             {
                 color.r = ability / 600;
-                print(ability / 600);
             }
         }
 	}

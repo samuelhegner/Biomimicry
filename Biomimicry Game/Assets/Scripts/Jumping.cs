@@ -71,7 +71,7 @@ public class Jumping : MonoBehaviour
 
         if (jumpCount >= 1 && !canJump && objectiveCounter >= 3)
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift) && !canJump)
             {
                 audioSource.clip = glide;
                 if (audioReady == true)

@@ -15,11 +15,13 @@ public class Camouflage: MonoBehaviour
     Animator anim;
     AudioSource BiteSFX;
     int midAir;
+    public int enemiesEaten;
 
     public Text abilityScore;
 
     void Start()
     {
+        enemiesEaten = 0;
         BiteSFX = GetComponent<AudioSource>();
         color = GetComponent<Renderer>().material.color;
         anim = GetComponentInParent<Animator>();
@@ -103,6 +105,7 @@ public class Camouflage: MonoBehaviour
             {
                 abilitypower = 600;
             }
+            enemiesEaten++;
         }
     }
 }
