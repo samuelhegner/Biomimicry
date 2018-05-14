@@ -21,7 +21,7 @@ public class InGameMenu : MonoBehaviour {
 
     void Update () {
 
-        controlScore = GameObject.Find("Player").GetComponent<Jumping>().objectiveCounter;
+        controlScore = Player.GetComponent<Jumping>().objectiveCounter;
         
         if (Pause == true)
         {
