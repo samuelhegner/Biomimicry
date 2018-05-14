@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1892675461287276}
+  bloodSplat: {fileID: 1965214185914250, guid: 2ad22d993777a7d47979099e2e211ea1, type: 2}
 --- !u!212 &212127641175748722
 SpriteRenderer:
   m_ObjectHideFlags: 1

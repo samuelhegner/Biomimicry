@@ -7,6 +7,8 @@ public class PlantDetection : MonoBehaviour {
 
     public GameObject animator;
 
+    public GameObject bloodSplat;
+
     GameObject player;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +41,7 @@ public class PlantDetection : MonoBehaviour {
                 player.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
+        Instantiate(bloodSplat, transform.position, transform.rotation);
         player.GetComponent<Jumping>().enabled = false;
         player.GetComponent<Movement>().enabled = false;
     }

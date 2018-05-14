@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Camouflage: MonoBehaviour
 {
     GameObject Portal;
+    public GameObject bloodSplat;
+
     Color color;
     public KeyCode change;
     public int abilitypower;
@@ -94,7 +96,8 @@ public class Camouflage: MonoBehaviour
         {
             BiteSFX.Play();
             isInvisible = false;
-            anim.SetTrigger("Bite");         
+            anim.SetTrigger("Bite");
+            Instantiate(bloodSplat, transform.position, transform.rotation);         
             Destroy(collision.gameObject);
             if (abilitypower < 480)
             {
