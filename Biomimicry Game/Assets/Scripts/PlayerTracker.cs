@@ -25,13 +25,16 @@ public class PlayerTracker : MonoBehaviour {
         {
             chasing = true;
             Body.SetActive(true);
-            this.transform.position = transform.position + new Vector3(-xMovement, 0, 0);  
+            this.transform.position = transform.position + new Vector3(-xMovement, 0, 0);
+            GetComponentInChildren<Animator>().SetBool("FacingRight", false);
+
         }
         else if (PlayerBody.tag == "Stealthed" && PlayerTransform.position.x >= transform.position.x && PlayerTransform.position.x < transform.position.x + 20 && PlayerTransform.position.y < transform.position.y + 30 && PlayerTransform.position.y >= transform.position.y - 30)
         {
             chasing = true;
             Body.SetActive(true);
             this.transform.position = transform.position + new Vector3(+xMovement, 0, 0);
+            GetComponentInChildren<Animator>().SetBool("FacingRight", true);
         }
         else if (PlayerBody.tag == "Unstealthed")
         {
