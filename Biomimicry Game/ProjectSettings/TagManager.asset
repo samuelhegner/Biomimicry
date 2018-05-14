@@ -67,3 +67,6 @@ TagManager:
   - name: Smoke
     uniqueID: 3959266769
     locked: 0
+  - name: Queen
+    uniqueID: 1095783445
+    locked: 0
