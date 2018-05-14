@@ -647,6 +647,11 @@ Prefab:
       propertyPath: Queen
       value: 
       objectReference: {fileID: 2134758348}
+    - target: {fileID: 114508009027852036, guid: 90e23e982fb6001499be1a85422399c9,
+        type: 2}
+      propertyPath: QueenTransform
+      value: 
+      objectReference: {fileID: 2134758348}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90e23e982fb6001499be1a85422399c9, type: 2}
   m_IsPrefabParent: 0
@@ -3380,6 +3385,11 @@ Prefab:
       propertyPath: Queen
       value: 
       objectReference: {fileID: 2134758348}
+    - target: {fileID: 114508009027852036, guid: 90e23e982fb6001499be1a85422399c9,
+        type: 2}
+      propertyPath: QueenTransform
+      value: 
+      objectReference: {fileID: 2134758348}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90e23e982fb6001499be1a85422399c9, type: 2}
   m_IsPrefabParent: 0
@@ -3974,6 +3984,11 @@ Prefab:
     - target: {fileID: 114545310634594038, guid: 90e23e982fb6001499be1a85422399c9,
         type: 2}
       propertyPath: Queen
+      value: 
+      objectReference: {fileID: 2134758348}
+    - target: {fileID: 114508009027852036, guid: 90e23e982fb6001499be1a85422399c9,
+        type: 2}
+      propertyPath: QueenTransform
       value: 
       objectReference: {fileID: 2134758348}
     m_RemovedComponents: []
