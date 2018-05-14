@@ -37055,11 +37055,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4485195810889140, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 125.599976
+      value: 132.5
       objectReference: {fileID: 0}
     - target: {fileID: 4485195810889140, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -14.9
+      value: -11.1
       objectReference: {fileID: 0}
     - target: {fileID: 4485195810889140, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
       propertyPath: m_LocalPosition.z
@@ -37087,7 +37087,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1592852223833984, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
       propertyPath: m_Name
-      value: EndLevel/SceneChanger
+      value: Portal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}

@@ -4631,18 +4631,9 @@ Prefab:
       propertyPath: PlayerBody
       value: 
       objectReference: {fileID: 980980095}
-    - target: {fileID: 4485195810889140, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4485195810889140, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82049528583364308, guid: 5884602d55b67d041ac87ba5af83f593,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
+    - target: {fileID: 1592852223833984, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}
+      propertyPath: m_Name
+      value: Portal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5884602d55b67d041ac87ba5af83f593, type: 2}

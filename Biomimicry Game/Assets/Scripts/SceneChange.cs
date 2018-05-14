@@ -17,7 +17,7 @@ public class SceneChange : MonoBehaviour {
 	void Start () { 
         levelNumber = SceneManager.GetActiveScene().buildIndex;
         audioSource = GetComponent<AudioSource>();
-        activateScore = (levelNumber * 2 + 1);
+        activateScore = (levelNumber + 1);
 	}
 	
 	// Update is called once per frame
