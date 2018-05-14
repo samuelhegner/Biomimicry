@@ -3548,29 +3548,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1775294687336208, guid: 58092978510b8f340a04d1875db6e348, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4783102945755328, guid: 58092978510b8f340a04d1875db6e348, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 84.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224980492618334412, guid: 58092978510b8f340a04d1875db6e348,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 8.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 224980492618334412, guid: 58092978510b8f340a04d1875db6e348,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 9.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 82129754966796336, guid: 58092978510b8f340a04d1875db6e348,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58092978510b8f340a04d1875db6e348, type: 2}
   m_IsPrefabParent: 0
