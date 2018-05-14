@@ -3566,6 +3566,11 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: 9.66
       objectReference: {fileID: 0}
+    - target: {fileID: 82129754966796336, guid: 58092978510b8f340a04d1875db6e348,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58092978510b8f340a04d1875db6e348, type: 2}
   m_IsPrefabParent: 0
@@ -8000,6 +8005,11 @@ Prefab:
     - target: {fileID: 4440052058427184, guid: 3476c17c02b438345be662021d19dfa7, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82737425137549228, guid: 3476c17c02b438345be662021d19dfa7,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3476c17c02b438345be662021d19dfa7, type: 2}
