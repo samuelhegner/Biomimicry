@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class Camouflage: MonoBehaviour
 {
+    GameObject Portal;
     Color color;
     public KeyCode change;
     public int abilitypower;
+    public int neededPrey;
     public bool isInvisible;
     public bool inProgress = false;
     public GameObject player;
@@ -21,6 +23,7 @@ public class Camouflage: MonoBehaviour
 
     void Start()
     {
+        Portal = GameObject.Find("Portal").GetComponent<GameObject>();
         enemiesEaten = 0;
         BiteSFX = GetComponent<AudioSource>();
         color = GetComponent<Renderer>().material.color;
@@ -28,15 +31,11 @@ public class Camouflage: MonoBehaviour
     }
     private void Update()
     {
+        neededPrey = Portal.GetComponent<SceneChange>().activateScore;
         midAir = Main.GetComponent<Jumping>().jumpCount;
-        if (DayTimeTracker.daytime == true)
-        {
-            abilityScore.text = "Stealth Left: " + (abilitypower + 59) / 60;
-        }
-        if (DayTimeTracker.daytime == false)
-        {
-            abilityScore.text = "Stealth stored for day: " + (abilitypower + 59) / 60;
-        }
+
+        abilityScore.text = "Prey Eaten " + enemiesEaten + "/" + neededPrey;
+        
         if (Input.GetKeyDown(change) && midAir < 1)
         {
             if (isInvisible == true && inProgress == false)
